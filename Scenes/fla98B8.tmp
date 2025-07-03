@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7tu6r7p7gwkx"]
+
+[ext_resource type="PackedScene" uid="uid://n866p3epmiax" path="res://Scenes/Units/infantry.tscn" id="1_idbwe"]
+[ext_resource type="PackedScene" uid="uid://bvulxg8ghp2a1" path="res://Scenes/hand.tscn" id="2_b2agj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrau6"]
+size = Vector2(2373.13, 253.313)
+
+[node name="FlatBattlefield" type="Node2D"]
+
+[node name="Infantry2" parent="." instance=ExtResource("1_idbwe")]
+position = Vector2(766, 41)
+isEnemy = true
+
+[node name="Infantry3" parent="." instance=ExtResource("1_idbwe")]
+position = Vector2(476, 69)
+isEnemy = true
+
+[node name="Infantry4" parent="." instance=ExtResource("1_idbwe")]
+position = Vector2(633, 77)
+isEnemy = true
+
+[node name="Infantry5" parent="." instance=ExtResource("1_idbwe")]
+position = Vector2(946, 79)
+isEnemy = true
+
+[node name="Territory" type="Area2D" parent="." groups=["Territory"]]
+position = Vector2(565, 632)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Territory"]
+position = Vector2(582, 155)
+shape = SubResource("RectangleShape2D_hrau6")
+
+[node name="Hand" parent="." instance=ExtResource("2_b2agj")]
+position = Vector2(-6, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(718, 401)
+zoom = Vector2(0.8, 0.8)

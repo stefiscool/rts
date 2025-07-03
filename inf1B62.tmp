@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://n866p3epmiax"]
+
+[ext_resource type="Script" path="res://infantry.gd" id="1_iqe7s"]
+[ext_resource type="Script" path="res://unit_label.gd" id="2_241ok"]
+[ext_resource type="FontFile" uid="uid://wpvcwlw66vue" path="res://runescape_uf.ttf" id="3_436ty"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ynpd5"]
+radius = 20.0062
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lk0ra"]
+size = Vector2(36.375, 7.5)
+
+[sub_resource type="Theme" id="Theme_gcuyk"]
+default_font = ExtResource("3_436ty")
+
+[node name="Infantry" type="CharacterBody2D"]
+script = ExtResource("1_iqe7s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -34.0
+offset_top = -18.0
+offset_right = 34.0
+offset_bottom = 17.0
+
+[node name="Polygon2D" type="Polygon2D" parent="ColorRect"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(5, 0, 0, 0, 0, 4, 29, 18, 0, 30, 0, 35, 4, 35, 34, 20, 63, 35, 68, 35, 68, 31, 39, 18, 68, 4, 68, 0, 63, 0, 34, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("CircleShape2D_ynpd5")
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2(10, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_lk0ra")
+
+[node name="UnitLabel" type="ColorRect" parent="."]
+offset_left = -37.0
+offset_top = -42.0
+offset_right = 40.0
+offset_bottom = -24.0
+color = Color(1, 0, 0, 1)
+script = ExtResource("2_241ok")
+
+[node name="ColorRect" type="ColorRect" parent="UnitLabel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 76.0
+offset_bottom = 17.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="UnitLabel/ColorRect"]
+offset_right = 75.0
+offset_bottom = 23.0
+theme = SubResource("Theme_gcuyk")
+text = "Infantry"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
