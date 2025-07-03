@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl5mpff3p5f7v"]
+[gd_scene load_steps=6 format=3 uid="uid://dl5mpff3p5f7v"]
 
 [ext_resource type="Script" path="res://Scripts/infantry.gd" id="1_1roc2"]
 [ext_resource type="Script" path="res://Scripts/unit_label.gd" id="2_1a2cs"]
@@ -8,6 +8,9 @@ radius = 20.0062
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lk0ra"]
 size = Vector2(100.188, 7.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hacmb"]
+radius = 76.0
 
 [node name="General" type="CharacterBody2D"]
 script = ExtResource("1_1roc2")
@@ -74,5 +77,10 @@ offset_top = 22.0
 offset_right = 104.0
 offset_bottom = 31.0
 color = Color(1, 0, 0, 1)
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_hacmb")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

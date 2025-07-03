@@ -5,14 +5,24 @@ extends CharacterBody2D
 @export var damage = 10
 @export var maxSpeed = 200
 @export var attackSpeed = 6000
-@export var rangeRadius = 100
+@export var rangeRadius = 500.0
 @export var isEnemy = false
+@onready var projectile = preload("res://Scenes/Units/infantry.tscn")
+@export var isMelee = true
+@export var isRanged = false
 var hp
 var speed
 
 func _ready() -> void:
 	hp = maxHp
 	speed = maxSpeed
+	var collision_shape = $Range/CollisionShape2D
+	#if collision_shape.shape is CircleShape2D:
+	collision_shape.shape.radius = rangeRadius
+	#else:
+		#var circle_shape = CircleShape2D.new()
+		#circle_shape.radius = rangeRadius
+		#collision_shape.shape = circle_shape
 	$UnitLabel/ColorRect/Label.text = unitName
 	if isEnemy:
 		add_to_group("Enemy")

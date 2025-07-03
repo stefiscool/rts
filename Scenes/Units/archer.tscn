@@ -1,19 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://n866p3epmiax"]
+[gd_scene load_steps=6 format=3 uid="uid://dy2ppps4kigqx"]
 
-[ext_resource type="Script" path="res://Scripts/infantry.gd" id="1_axss7"]
-[ext_resource type="Script" path="res://Scripts/unit_label.gd" id="2_46pyy"]
+[ext_resource type="Script" path="res://Scripts/infantry.gd" id="1_uy2w3"]
+[ext_resource type="Script" path="res://Scripts/unit_label.gd" id="2_25ewu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ynpd5"]
 radius = 20.0062
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lk0ra"]
-size = Vector2(36.375, 7.5)
+size = Vector2(29.1875, 7.5)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s3y8w"]
-radius = 175.99
+[sub_resource type="CircleShape2D" id="CircleShape2D_1rrck"]
+radius = 109.005
 
-[node name="Infantry" type="CharacterBody2D"]
-script = ExtResource("1_axss7")
+[node name="Archer" type="CharacterBody2D"]
+script = ExtResource("1_uy2w3")
+maxHp = 50
+unitName = "Archer"
+damage = 5
+maxSpeed = 150
+isRanged = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -18.0
@@ -24,7 +29,7 @@ offset_bottom = 17.0
 [node name="Polygon2D" type="Polygon2D" parent="ColorRect"]
 scale = Vector2(0.485294, 1)
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(5, 0, 0, 0, 0, 4, 29, 18, 0, 30, 0, 35, 4, 35, 34, 20, 63, 35, 68, 35, 68, 31, 39, 18, 68, 4, 68, 0, 63, 0, 34, 14)
+polygon = PackedVector2Array(5, 0, 0, 0, 0, 4, 29, 18, 0, 30, 0, 35, 4, 35, 39.1515, 18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
@@ -34,6 +39,7 @@ shape = SubResource("CircleShape2D_ynpd5")
 position = Vector2(10, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-3.59375, 0)
 shape = SubResource("RectangleShape2D_lk0ra")
 
 [node name="UnitLabel" type="ColorRect" parent="."]
@@ -46,7 +52,7 @@ offset_right = 54.0
 offset_bottom = -26.0
 grow_horizontal = 2
 color = Color(1, 0, 0, 1)
-script = ExtResource("2_46pyy")
+script = ExtResource("2_25ewu")
 
 [node name="ColorRect" type="ColorRect" parent="UnitLabel"]
 layout_mode = 0
@@ -82,6 +88,6 @@ color = Color(1, 0, 0, 1)
 [node name="Range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
-shape = SubResource("CircleShape2D_s3y8w")
+shape = SubResource("CircleShape2D_1rrck")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
