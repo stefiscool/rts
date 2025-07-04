@@ -9,17 +9,26 @@ var currentState = State.ATTACK
 @export var damage = 10
 @export var maxSpeed = 200
 @export var attackSpeed = 6000
+@export var meleeWeaponReach = 1.0
+
+@export var rangedDamage = 20
+@export var projectileSpeed = 1000
 @export var rangeRadius = 500.0
+@export var rateOfFire = 0.5
+var canFire = true
+
 @export var isEnemy = false
-@onready var projectile = preload("res://Scenes/Units/infantry.tscn")
+@onready var projectile = preload("res://Scenes/projectile.tscn")
 @onready var corpse = preload("res://Scenes/corpse.tscn")
 @export var isMelee = true
 @export var isRanged = false
 var hp
 var speed
 var morale
+var skirmishing = false
 
 func _ready() -> void:
+	$HitBox/CollisionShape2D.scale.x = meleeWeaponReach
 	hp = maxHp
 	morale = maxMorale
 	speed = maxSpeed
@@ -57,6 +66,7 @@ func get_closest_enemy() -> Node2D:
 		return closest_enemy
 
 func _physics_process(delta: float) -> void:
+	velocity = velocity.limit_length(speed)
 	var enemy = get_closest_enemy()
 	
 	if enemy == null or !is_instance_valid(enemy):
@@ -81,7 +91,7 @@ func _process(delta: float) -> void:
 	if morale <= 0:
 		morale = 0
 		currentState = State.RETREAT
-	else:
+	elif skirmishing == false:
 		currentState = State.ATTACK
 	if hp <= 0:
 		var corpseInstance = corpse.instantiate()
@@ -111,8 +121,30 @@ func _on_range_area_entered(area: Area2D) -> void:
 
 	# Check if unit enters an area that affects morale
 	if area.is_in_group(same_side_dead):
-		morale -= 5
+		morale -= randi_range(5,10)
 	elif area.is_in_group(enemy_dead):
-		morale += 5
+		morale += randi_range(5,10)
 	if area.is_in_group(territory):
 		morale += 30
+	
+	
+		
+
+func _on_range_body_entered(body: Node2D) -> void:
+	if isRanged:
+		var target_group = "Ally" if isEnemy else "Enemy"
+		if body.is_in_group(target_group) and canFire == true:
+			var projectileInstance = projectile.instantiate()
+			get_tree().get_root().add_child(projectileInstance)
+			projectileInstance.position = global_position
+			projectileInstance.rotation = global_rotation
+			projectileInstance.isEnemy = isEnemy
+			projectileInstance.speed = projectileSpeed
+			projectileInstance.damage = rangedDamage
+			canFire = false
+			skirmishing = true
+			currentState = State.RETREAT
+			await get_tree().create_timer(rateOfFire).timeout
+			currentState = State.ATTACK
+			canFire = true
+			skirmishing = false

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmcea37bgndw0"]
+
+[ext_resource type="Script" uid="uid://523of1xmrbg8" path="res://Scripts/projectile.gd" id="1_f8cdk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_at5ip"]
+size = Vector2(64, 14)
+
+[node name="Projectile" type="Area2D"]
+script = ExtResource("1_f8cdk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_at5ip")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+rotation = 1.5708
+polygon = PackedVector2Array(0, -35, -8, 33, 0, 13, 9, 34)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
