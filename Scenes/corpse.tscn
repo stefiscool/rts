@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://hxghyfb6j4yr"]
+
+[ext_resource type="Script" uid="uid://c3trp5u4gq8tx" path="res://Scripts/corpse.gd" id="1_rmjuq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vguwo"]
+
+[node name="Corpse" type="Area2D"]
+script = ExtResource("1_rmjuq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vguwo")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-7, -9, -11, -3, -8, 1, -7, 10, -5, 9, -5, 11, -2, 8, -1, 10, 1, 7, 2, 10, 3, 8, 4, 11, 7, 0, 10, -2, 6, -10)

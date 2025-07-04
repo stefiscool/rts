@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
+enum State {ATTACK, RETREAT}
+var currentState = State.ATTACK
+@export var cost = 10
 @export var maxHp = 100
+@export var maxMorale = 50
 @export var unitName = "Infantry"
 @export var damage = 10
 @export var maxSpeed = 200
@@ -8,21 +12,19 @@ extends CharacterBody2D
 @export var rangeRadius = 500.0
 @export var isEnemy = false
 @onready var projectile = preload("res://Scenes/Units/infantry.tscn")
+@onready var corpse = preload("res://Scenes/corpse.tscn")
 @export var isMelee = true
 @export var isRanged = false
 var hp
 var speed
+var morale
 
 func _ready() -> void:
 	hp = maxHp
+	morale = maxMorale
 	speed = maxSpeed
 	var collision_shape = $Range/CollisionShape2D
-	#if collision_shape.shape is CircleShape2D:
 	collision_shape.shape.radius = rangeRadius
-	#else:
-		#var circle_shape = CircleShape2D.new()
-		#circle_shape.radius = rangeRadius
-		#collision_shape.shape = circle_shape
 	$UnitLabel/ColorRect/Label.text = unitName
 	if isEnemy:
 		add_to_group("Enemy")
@@ -60,15 +62,35 @@ func _physics_process(delta: float) -> void:
 	if enemy == null or !is_instance_valid(enemy):
 		pass
 	else:
-		look_at(enemy.position)
-		position += (enemy.position - position).normalized() * speed * delta
-		move_and_slide()
+		match currentState:
+			State.ATTACK:
+				look_at(enemy.position)
+				position += (enemy.position - position).normalized() * speed * delta
+				move_and_slide()
+			State.RETREAT:
+				look_at(enemy.position)
+				position -= (enemy.position - position).normalized() * speed * delta
+				move_and_slide()
 
 func _process(delta: float) -> void:
 	$HitBox.rotation_degrees += attackSpeed * delta
+	if morale > maxMorale:
+		morale = maxMorale
+	if hp > maxHp:
+		hp = maxHp
+	if morale <= 0:
+		morale = 0
+		currentState = State.RETREAT
+	else:
+		currentState = State.ATTACK
 	if hp <= 0:
+		var corpseInstance = corpse.instantiate()
+		get_tree().get_root().add_child(corpseInstance)
+		corpseInstance.position = global_position
+		corpseInstance.isEnemy = isEnemy
 		queue_free()
 	$UnitLabel/ColorRect/HPBar.scale.x = float(hp) / float(maxHp)
+	$UnitLabel/ColorRect/MoraleBar.scale.x = float(morale) / float(maxMorale)
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
@@ -79,3 +101,18 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 		
 		await get_tree().create_timer(0.1).timeout
 		speed = maxSpeed
+
+
+func _on_range_area_entered(area: Area2D) -> void:
+	# Define groups based on allegiance
+	var same_side_dead = "DeadEnemy" if isEnemy else "DeadAlly"
+	var enemy_dead = "DeadAlly" if isEnemy else "DeadEnemy"
+	var territory = "EnemyTerritory" if isEnemy else "Territory"
+
+	# Check if unit enters an area that affects morale
+	if area.is_in_group(same_side_dead):
+		morale -= 5
+	elif area.is_in_group(enemy_dead):
+		morale += 5
+	if area.is_in_group(territory):
+		morale += 30

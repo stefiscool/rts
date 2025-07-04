@@ -1,44 +1,69 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7tu6r7p7gwkx"]
+[gd_scene load_steps=9 format=3 uid="uid://b7tu6r7p7gwkx"]
 
 [ext_resource type="PackedScene" uid="uid://n866p3epmiax" path="res://Scenes/Units/infantry.tscn" id="1_idbwe"]
+[ext_resource type="Texture2D" uid="uid://cnahugxpq6fvm" path="res://Assets/grasspath.jpg" id="1_yqkj2"]
 [ext_resource type="PackedScene" uid="uid://bvulxg8ghp2a1" path="res://Scenes/hand.tscn" id="2_b2agj"]
-[ext_resource type="Script" path="res://Scripts/camera.gd" id="3_74cxr"]
+[ext_resource type="Script" uid="uid://4fkh0d6ol7ms" path="res://Scripts/camera.gd" id="3_74cxr"]
 [ext_resource type="PackedScene" uid="uid://dl5mpff3p5f7v" path="res://Scenes/Units/general.tscn" id="3_gp7ii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrau6"]
-size = Vector2(1478.56, 253.313)
+size = Vector2(1472.28, 257.656)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_larjp"]
+size = Vector2(159, 2313)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqkj2"]
+size = Vector2(1614.5, 146.5)
 
 [node name="FlatBattlefield" type="Node2D"]
 
+[node name="Grasspath" type="Sprite2D" parent="."]
+position = Vector2(713.225, -228.883)
+rotation = -1.56334
+scale = Vector2(2.96395, 3.26719)
+texture = ExtResource("1_yqkj2")
+
 [node name="Infantry2" parent="." instance=ExtResource("1_idbwe")]
-position = Vector2(773, 116)
+position = Vector2(764, -1021)
+isEnemy = true
+
+[node name="Infantry8" parent="." instance=ExtResource("1_idbwe")]
+position = Vector2(951, -1160)
 isEnemy = true
 
 [node name="Infantry3" parent="." instance=ExtResource("1_idbwe")]
-position = Vector2(476, 69)
+position = Vector2(467, -1068)
+attackSpeed = 500
 isEnemy = true
 
 [node name="Infantry4" parent="." instance=ExtResource("1_idbwe")]
-position = Vector2(617, 110)
+position = Vector2(608, -1027)
 isEnemy = true
 
 [node name="Infantry6" parent="." instance=ExtResource("1_idbwe")]
-position = Vector2(355, 115)
+position = Vector2(346, -1022)
 isEnemy = true
 
 [node name="Infantry7" parent="." instance=ExtResource("1_idbwe")]
-position = Vector2(1045, 118)
+position = Vector2(1036, -1019)
 isEnemy = true
 
 [node name="Infantry5" parent="." instance=ExtResource("1_idbwe")]
-position = Vector2(946, 79)
+position = Vector2(937, -1058)
 isEnemy = true
 
 [node name="Territory" type="Area2D" parent="." groups=["Territory"]]
 position = Vector2(565, 632)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Territory"]
-position = Vector2(134.718, 155)
+position = Vector2(135.86, 42.8282)
+shape = SubResource("RectangleShape2D_hrau6")
+
+[node name="EnemyTerritory" type="Area2D" parent="." groups=["EnemyTerritory"]]
+position = Vector2(565, 632)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyTerritory"]
+position = Vector2(134, -1766)
 shape = SubResource("RectangleShape2D_hrau6")
 
 [node name="Hand" parent="." instance=ExtResource("2_b2agj")]
@@ -48,10 +73,59 @@ position = Vector2(-6, 1)
 position = Vector2(718, 401)
 zoom = Vector2(0.8, 0.8)
 script = ExtResource("3_74cxr")
+min_zoom = 0.3
 
 [node name="General" parent="." instance=ExtResource("3_gp7ii")]
 position = Vector2(687, 696)
 
 [node name="General2" parent="." instance=ExtResource("3_gp7ii")]
-position = Vector2(685, 27)
+position = Vector2(644, -1153)
 isEnemy = true
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2(-116, -215)
+shape = SubResource("RectangleShape2D_larjp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2(1518, -225)
+shape = SubResource("RectangleShape2D_larjp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2(716, -1312)
+shape = SubResource("RectangleShape2D_yqkj2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2(703, 878)
+shape = SubResource("RectangleShape2D_yqkj2")
+
+[node name="ColorRect" type="ColorRect" parent="Walls/StaticBody2D"]
+offset_left = -232.0
+offset_top = -1382.0
+offset_right = -38.0
+offset_bottom = 941.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Walls/StaticBody2D"]
+offset_left = 1437.0
+offset_top = -1421.0
+offset_right = 1631.0
+offset_bottom = 902.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Walls/StaticBody2D"]
+offset_left = -96.0
+offset_top = 805.0
+offset_right = 1580.0
+offset_bottom = 971.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Walls/StaticBody2D"]
+offset_left = -196.0
+offset_top = -1406.0
+offset_right = 1480.0
+offset_bottom = -1240.0
+color = Color(0, 0, 0, 1)
