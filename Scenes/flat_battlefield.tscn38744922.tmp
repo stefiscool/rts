@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bvulxg8ghp2a1" path="res://Scenes/hand.tscn" id="2_b2agj"]
 [ext_resource type="Script" uid="uid://4fkh0d6ol7ms" path="res://Scripts/camera.gd" id="3_74cxr"]
 [ext_resource type="PackedScene" uid="uid://dl5mpff3p5f7v" path="res://Scenes/Units/general.tscn" id="3_gp7ii"]
-[ext_resource type="PackedScene" uid="uid://bj7vtih22qg4q" path="res://Scenes/Units/goblin.tscn" id="5_yqkj2"]
+[ext_resource type="PackedScene" uid="uid://c64rmhrn5st5x" path="res://Scenes/Units/cavalry.tscn" id="5_yqkj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrau6"]
 size = Vector2(1472.28, 257.656)
@@ -101,82 +101,18 @@ offset_right = 1480.0
 offset_bottom = -1240.0
 color = Color(0, 0, 0, 1)
 
-[node name="Goblin" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(44, -1080)
+[node name="Cavalry" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(234, -967)
 isEnemy = true
 
-[node name="Goblin2" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(136, -1058)
+[node name="Cavalry2" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(564, -981)
 isEnemy = true
 
-[node name="Goblin3" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(269, -1054)
+[node name="Cavalry3" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(896, -979)
 isEnemy = true
 
-[node name="Goblin4" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(393, -1057)
-isEnemy = true
-
-[node name="Goblin5" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(565, -1060)
-isEnemy = true
-
-[node name="Goblin6" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(471, -1104)
-isEnemy = true
-
-[node name="Goblin7" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(682, -1063)
-isEnemy = true
-
-[node name="Goblin8" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(847, -1069)
-isEnemy = true
-
-[node name="Goblin9" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(1037, -1076)
-isEnemy = true
-
-[node name="Goblin10" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(1202, -1079)
-isEnemy = true
-
-[node name="Goblin11" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(1329, -1073)
-isEnemy = true
-
-[node name="Goblin12" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(1248, -1014)
-isEnemy = true
-
-[node name="Goblin13" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(1054, -1013)
-isEnemy = true
-
-[node name="Goblin14" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(879, -1008)
-isEnemy = true
-
-[node name="Goblin15" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(703, -1005)
-isEnemy = true
-
-[node name="Goblin16" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(536, -996)
-isEnemy = true
-
-[node name="Goblin17" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(354, -987)
-isEnemy = true
-
-[node name="Goblin18" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(249, -985)
-isEnemy = true
-
-[node name="Goblin19" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(86, -988)
-isEnemy = true
-
-[node name="Goblin20" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(699, -819)
+[node name="Cavalry4" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(1176, -973)
 isEnemy = true

@@ -7,6 +7,7 @@ var currentState = State.ATTACK
 @export var maxMorale = 50
 @export var unitName = "Infantry"
 @export var maxSpeed = 200
+@export var size = 1.0
 
 #These stats only apply to melee units
 @export var damage = 10
@@ -40,6 +41,7 @@ var shooting = false
 var thrust_timer: float = 0.0
 
 func _ready() -> void:
+	scale = Vector2(size,size)
 	$HitBox/CollisionShape2D.scale.x = meleeWeaponReach
 	hp = maxHp
 	morale = maxMorale

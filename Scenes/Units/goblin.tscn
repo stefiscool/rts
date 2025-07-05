@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://n866p3epmiax"]
+[gd_scene load_steps=8 format=3 uid="uid://bj7vtih22qg4q"]
 
-[ext_resource type="Script" uid="uid://dfdi6xwgiuspq" path="res://Scripts/infantry.gd" id="1_axss7"]
-[ext_resource type="Script" uid="uid://051t0eyuudss" path="res://Scripts/unit_label.gd" id="2_46pyy"]
-[ext_resource type="Texture2D" uid="uid://bvqbxo061v46x" path="res://Assets/imperialSwordsman (2).png" id="2_nnrfc"]
-[ext_resource type="Script" uid="uid://65fskr7lns6c" path="res://Scripts/unit_sprite.gd" id="3_el7ok"]
+[ext_resource type="Script" uid="uid://dfdi6xwgiuspq" path="res://Scripts/infantry.gd" id="1_1eww3"]
+[ext_resource type="Texture2D" uid="uid://cj6c7bevvepnr" path="res://Assets/goblinDagger.png" id="2_1eww3"]
+[ext_resource type="Script" uid="uid://65fskr7lns6c" path="res://Scripts/unit_sprite.gd" id="3_y066u"]
+[ext_resource type="Script" uid="uid://051t0eyuudss" path="res://Scripts/unit_label.gd" id="4_44afv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ynpd5"]
 radius = 18.0069
@@ -14,19 +14,24 @@ size = Vector2(36.375, 7.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3y8w"]
 radius = 175.99
 
-[node name="Infantry" type="CharacterBody2D"]
-script = ExtResource("1_axss7")
-maxSpeed = 100
-attackSpeed = 200
-meleeWeaponReach = 1.2
+[node name="Goblin" type="CharacterBody2D"]
+script = ExtResource("1_1eww3")
+cost = 5
+maxHp = 50
+maxMorale = 30
+unitName = "Goblin"
+maxSpeed = 150
+size = 0.9
+damage = 7
+attackSpeed = 400
 
 [node name="UnitSprite" type="Sprite2D" parent="."]
 position = Vector2(5, 0)
 rotation = 1.5708
-texture = ExtResource("2_nnrfc")
+texture = ExtResource("2_1eww3")
 hframes = 3
 vframes = 4
-script = ExtResource("3_el7ok")
+script = ExtResource("3_y066u")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -60,7 +65,7 @@ offset_right = 54.0
 offset_bottom = -15.0
 grow_horizontal = 2
 color = Color(1, 0, 0, 1)
-script = ExtResource("2_46pyy")
+script = ExtResource("4_44afv")
 
 [node name="ColorRect" type="ColorRect" parent="UnitLabel"]
 layout_mode = 0
