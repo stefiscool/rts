@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5aha41d6pfqi"]
+
+[ext_resource type="Script" uid="uid://r4bhwpovdm6f" path="res://Scripts/explosion.gd" id="1_aayv4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vxas0"]
+radius = 48.1664
+
+[node name="Explosion" type="Area2D"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_aayv4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vxas0")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 0.243137, 0, 1)
+polygon = PackedVector2Array(-1, -49, -24, -41, -43, -21, -49, -1, -42, 22, -24, 41, -1, 47, 25, 41, 39, 27, 49, 1, 40, -27, 25, -42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

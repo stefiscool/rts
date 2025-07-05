@@ -1,12 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7tu6r7p7gwkx"]
+[gd_scene load_steps=9 format=3 uid="uid://b7tu6r7p7gwkx"]
 
-[ext_resource type="PackedScene" uid="uid://n866p3epmiax" path="res://Scenes/Units/infantry.tscn" id="1_idbwe"]
 [ext_resource type="Texture2D" uid="uid://cnahugxpq6fvm" path="res://Assets/grasspath.jpg" id="1_yqkj2"]
 [ext_resource type="PackedScene" uid="uid://bvulxg8ghp2a1" path="res://Scenes/hand.tscn" id="2_b2agj"]
 [ext_resource type="Script" uid="uid://4fkh0d6ol7ms" path="res://Scripts/camera.gd" id="3_74cxr"]
 [ext_resource type="PackedScene" uid="uid://dl5mpff3p5f7v" path="res://Scenes/Units/general.tscn" id="3_gp7ii"]
-[ext_resource type="PackedScene" uid="uid://dkm2g0sfq308t" path="res://Scenes/Units/archer.tscn" id="3_sianv"]
-[ext_resource type="PackedScene" uid="uid://c64rmhrn5st5x" path="res://Scenes/Units/cavalry.tscn" id="4_d1fs1"]
+[ext_resource type="PackedScene" uid="uid://dkm2g0sfq308t" path="res://Scenes/Units/archer.tscn" id="5_yqkj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrau6"]
 size = Vector2(1472.28, 257.656)
@@ -24,78 +22,6 @@ position = Vector2(713.225, -228.883)
 rotation = -1.56334
 scale = Vector2(2.96395, 3.26719)
 texture = ExtResource("1_yqkj2")
-
-[node name="Infantry2" parent="." instance=ExtResource("1_idbwe")]
-position = Vector2(764, -1021)
-isEnemy = true
-
-[node name="Infantry8" parent="." instance=ExtResource("1_idbwe")]
-position = Vector2(951, -1160)
-isEnemy = true
-
-[node name="Infantry3" parent="." instance=ExtResource("1_idbwe")]
-position = Vector2(467, -1068)
-isEnemy = true
-
-[node name="Infantry4" parent="." instance=ExtResource("1_idbwe")]
-position = Vector2(608, -1027)
-isEnemy = true
-
-[node name="Infantry6" parent="." instance=ExtResource("1_idbwe")]
-position = Vector2(346, -1022)
-isEnemy = true
-
-[node name="Infantry7" parent="." instance=ExtResource("1_idbwe")]
-position = Vector2(1036, -1019)
-isEnemy = true
-
-[node name="Infantry5" parent="." instance=ExtResource("1_idbwe")]
-position = Vector2(937, -1058)
-isEnemy = true
-
-[node name="Archer" parent="." instance=ExtResource("3_sianv")]
-position = Vector2(163, -1044)
-isEnemy = true
-
-[node name="Archer2" parent="." instance=ExtResource("3_sianv")]
-position = Vector2(246, -1137)
-isEnemy = true
-
-[node name="Archer3" parent="." instance=ExtResource("3_sianv")]
-position = Vector2(1076, -1167)
-isEnemy = true
-
-[node name="Archer4" parent="." instance=ExtResource("3_sianv")]
-position = Vector2(1359, -1083)
-isEnemy = true
-
-[node name="Cavalry" parent="." instance=ExtResource("4_d1fs1")]
-position = Vector2(13, -1039)
-isEnemy = true
-
-[node name="Cavalry2" parent="." instance=ExtResource("4_d1fs1")]
-position = Vector2(146, -1192)
-isEnemy = true
-
-[node name="Cavalry3" parent="." instance=ExtResource("4_d1fs1")]
-position = Vector2(1259, -1187)
-isEnemy = true
-
-[node name="Cavalry4" parent="." instance=ExtResource("4_d1fs1")]
-position = Vector2(1185, -1068)
-isEnemy = true
-
-[node name="Cavalry5" parent="." instance=ExtResource("4_d1fs1")]
-position = Vector2(1391, -1184)
-isEnemy = true
-
-[node name="Archer5" parent="." instance=ExtResource("3_sianv")]
-position = Vector2(429, -1177)
-isEnemy = true
-
-[node name="Archer6" parent="." instance=ExtResource("3_sianv")]
-position = Vector2(40, -1138)
-isEnemy = true
 
 [node name="Territory" type="Area2D" parent="." groups=["Territory"]]
 position = Vector2(565, 632)
@@ -174,3 +100,35 @@ offset_top = -1406.0
 offset_right = 1480.0
 offset_bottom = -1240.0
 color = Color(0, 0, 0, 1)
+
+[node name="Archer" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(158, -576)
+isEnemy = true
+
+[node name="Archer2" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(453, -612)
+isEnemy = true
+
+[node name="Archer3" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(793, -615)
+isEnemy = true
+
+[node name="Archer4" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(1065, -620)
+isEnemy = true
+
+[node name="Archer5" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(1365, -582)
+isEnemy = true
+
+[node name="Archer6" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(1142, -468)
+isEnemy = true
+
+[node name="Archer7" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(680, -474)
+isEnemy = true
+
+[node name="Archer8" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(242, -468)
+isEnemy = true

@@ -22,6 +22,9 @@ var canFire = true
 @onready var corpse = preload("res://Scenes/corpse.tscn")
 @export var isMelee = true
 @export var isRanged = false
+@export var skills = []
+@export var conditions = []
+
 var hp
 var speed
 var morale
@@ -141,6 +144,8 @@ func _on_range_body_entered(body: Node2D) -> void:
 			projectileInstance.isEnemy = isEnemy
 			projectileInstance.speed = projectileSpeed
 			projectileInstance.damage = rangedDamage
+			if skills.has("Fireball"):
+				projectileInstance.skills.append("Fireball")
 			canFire = false
 			skirmishing = true
 			currentState = State.RETREAT
