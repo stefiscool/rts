@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bvulxg8ghp2a1" path="res://Scenes/hand.tscn" id="2_b2agj"]
 [ext_resource type="Script" uid="uid://4fkh0d6ol7ms" path="res://Scripts/camera.gd" id="3_74cxr"]
 [ext_resource type="PackedScene" uid="uid://dl5mpff3p5f7v" path="res://Scenes/Units/general.tscn" id="3_gp7ii"]
-[ext_resource type="PackedScene" uid="uid://dkm2g0sfq308t" path="res://Scenes/Units/archer.tscn" id="5_yqkj2"]
+[ext_resource type="PackedScene" uid="uid://c64rmhrn5st5x" path="res://Scenes/Units/cavalry.tscn" id="5_yqkj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrau6"]
 size = Vector2(1472.28, 257.656)
@@ -101,34 +101,18 @@ offset_right = 1480.0
 offset_bottom = -1240.0
 color = Color(0, 0, 0, 1)
 
-[node name="Archer" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(158, -576)
+[node name="Cavalry" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(234, -967)
 isEnemy = true
 
-[node name="Archer2" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(453, -612)
+[node name="Cavalry2" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(564, -981)
 isEnemy = true
 
-[node name="Archer3" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(793, -615)
+[node name="Cavalry3" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(896, -979)
 isEnemy = true
 
-[node name="Archer4" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(1065, -620)
-isEnemy = true
-
-[node name="Archer5" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(1365, -582)
-isEnemy = true
-
-[node name="Archer6" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(1142, -468)
-isEnemy = true
-
-[node name="Archer7" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(680, -474)
-isEnemy = true
-
-[node name="Archer8" parent="." instance=ExtResource("5_yqkj2")]
-position = Vector2(242, -468)
+[node name="Cavalry4" parent="." instance=ExtResource("5_yqkj2")]
+position = Vector2(1176, -973)
 isEnemy = true
