@@ -2,12 +2,14 @@ extends CharacterBody2D
 
 enum State {ATTACK, RETREAT, SKIRMISH}
 var currentState = State.ATTACK
-@export var cost = 10
+@export var cost = 10 # mana cost of unit
 @export var maxHp = 100
 @export var maxMorale = 50
 @export var unitName = "Infantry"
 @export var maxSpeed = 200
 @export var size = 1.0
+@export var icon : Texture2D
+@export var sprite : Texture2D
 
 #These stats only apply to melee units
 @export var damage = 10
@@ -21,24 +23,25 @@ var currentState = State.ATTACK
 @export var projectileLife = 2
 @export var rangeRadius = 500.0
 @export var rateOfFire = 0.5
-var canFire = true
 
 
-@export var isEnemy = false
-@onready var projectile = preload("res://Scenes/projectile.tscn")
-@onready var corpse = preload("res://Scenes/corpse.tscn")
 @export var isMelee = true
 @export var isRanged = false
 @export var skills = []
-#SKILLS: "Skirmish", "Thrust", "Fireball"
+#SKILLS: "Skirmish", "Thrust", "Fireball", "Charge"
 @export var conditions = []
 #CONDITIONS: "Burn", "Freeze" (They dont do anything yet)
+@export var isEnemy = false
+@onready var projectile = preload("res://Scenes/projectile.tscn")
+@onready var corpse = preload("res://Scenes/corpse.tscn")
 var hp
 var speed
 var morale
 var skirmishing = false
 var shooting = false
 var thrust_timer: float = 0.0
+var canFire = true
+
 
 func _ready() -> void:
 	scale = Vector2(size,size)
@@ -57,7 +60,7 @@ func _ready() -> void:
 		add_to_group("Ally")
 		$UnitLabel.color = Color(0, 0, 1)
 		$UnitLabel/ColorRect/HPBar.color = Color(0, 0, 1)
-	
+	$UnitSprite.texture = sprite
 		
 
 func get_closest_enemy() -> Node2D:

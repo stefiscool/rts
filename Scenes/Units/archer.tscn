@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkm2g0sfq308t"]
+[gd_scene load_steps=8 format=3 uid="uid://dkm2g0sfq308t"]
 
 [ext_resource type="Script" uid="uid://dfdi6xwgiuspq" path="res://Scripts/infantry.gd" id="1_l0jo0"]
 [ext_resource type="Script" uid="uid://051t0eyuudss" path="res://Scripts/unit_label.gd" id="2_vi60t"]
+[ext_resource type="Texture2D" uid="uid://bvqbxo061v46x" path="res://Assets/imperialSwordsman (2).png" id="3_iyrf4"]
+[ext_resource type="Script" uid="uid://65fskr7lns6c" path="res://Scripts/unit_sprite.gd" id="4_mux24"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ynpd5"]
 radius = 18.0069
@@ -110,6 +112,14 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 shape = SubResource("CircleShape2D_s3y8w")
+
+[node name="UnitSprite" type="Sprite2D" parent="."]
+position = Vector2(5, 0)
+rotation = 1.5708
+texture = ExtResource("3_iyrf4")
+hframes = 3
+vframes = 4
+script = ExtResource("4_mux24")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]

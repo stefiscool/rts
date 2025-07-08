@@ -78,131 +78,41 @@ grow_vertical = 0
 [node name="UnitButton" parent="ColorRect2/HBoxContainer" instance=ExtResource("1_jxero")]
 layout_mode = 2
 
-[node name="Button2" type="Button" parent="ColorRect2/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="UnitButton2" parent="ColorRect2/HBoxContainer" instance=ExtResource("1_jxero")]
 layout_mode = 2
-text = "Cavalry
-"
+unitNumber = 2
 
-[node name="Button" type="Button" parent="ColorRect2/HBoxContainer/Button2"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = -30.0
-offset_right = 89.0
-offset_bottom = -5.0
-text = "^"
-
-[node name="Button3" type="Button" parent="ColorRect2/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="UnitButton3" parent="ColorRect2/HBoxContainer" instance=ExtResource("1_jxero")]
 layout_mode = 2
-text = "Artillery
-"
+unitNumber = 3
 
-[node name="Button" type="Button" parent="ColorRect2/HBoxContainer/Button3"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = -30.0
-offset_right = 89.0
-offset_bottom = -5.0
-text = "^"
-
-[node name="Button4" type="Button" parent="ColorRect2/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="UnitButton4" parent="ColorRect2/HBoxContainer" instance=ExtResource("1_jxero")]
 layout_mode = 2
-text = "Musketeer
-"
+unitNumber = 4
 
-[node name="Button" type="Button" parent="ColorRect2/HBoxContainer/Button4"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = -30.0
-offset_right = 89.0
-offset_bottom = -5.0
-text = "^"
-
-[node name="Button5" type="Button" parent="ColorRect2/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="UnitButton5" parent="ColorRect2/HBoxContainer" instance=ExtResource("1_jxero")]
 layout_mode = 2
-text = "Pikeman
-"
+unitNumber = 5
 
-[node name="Button" type="Button" parent="ColorRect2/HBoxContainer/Button5"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = -30.0
-offset_right = 89.0
-offset_bottom = -5.0
-text = "^"
-
-[node name="Button6" type="Button" parent="ColorRect2/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="UnitButton6" parent="ColorRect2/HBoxContainer" instance=ExtResource("1_jxero")]
 layout_mode = 2
-text = "Landsknecht
-"
+unitNumber = 6
 
-[node name="Button" type="Button" parent="ColorRect2/HBoxContainer/Button6"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = -30.0
-offset_right = 89.0
-offset_bottom = -5.0
-text = "^"
-
-[node name="Button7" type="Button" parent="ColorRect2/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="UnitButton7" parent="ColorRect2/HBoxContainer" instance=ExtResource("1_jxero")]
 layout_mode = 2
-text = "Sapper
-"
+unitNumber = 7
 
-[node name="Button" type="Button" parent="ColorRect2/HBoxContainer/Button7"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = -30.0
-offset_right = 89.0
-offset_bottom = -5.0
-text = "^"
-
-[node name="Button8" type="Button" parent="ColorRect2/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="UnitButton8" parent="ColorRect2/HBoxContainer" instance=ExtResource("1_jxero")]
 layout_mode = 2
-text = "Destroyer
-"
+unitNumber = 8
 
-[node name="Button" type="Button" parent="ColorRect2/HBoxContainer/Button8"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = -30.0
-offset_right = 89.0
-offset_bottom = -5.0
-text = "^"
-
-[node name="Button9" type="Button" parent="ColorRect2/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="UnitButton9" parent="ColorRect2/HBoxContainer" instance=ExtResource("1_jxero")]
 layout_mode = 2
-text = "Officer
-"
+unitNumber = 9
 
-[node name="Button" type="Button" parent="ColorRect2/HBoxContainer/Button9"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = -30.0
-offset_right = 89.0
-offset_bottom = -5.0
-text = "^"
-
-[node name="Button10" type="Button" parent="ColorRect2/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="UnitButton10" parent="ColorRect2/HBoxContainer" instance=ExtResource("1_jxero")]
 layout_mode = 2
-text = "Sergeant
-"
-
-[node name="Button" type="Button" parent="ColorRect2/HBoxContainer/Button10"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = -30.0
-offset_right = 89.0
-offset_bottom = -5.0
-text = "^"
+unitNumber = 0
 
 [node name="Label" type="Label" parent="."]
 offset_left = 493.0
