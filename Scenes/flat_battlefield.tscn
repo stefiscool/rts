@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7tu6r7p7gwkx"]
+[gd_scene load_steps=8 format=3 uid="uid://b7tu6r7p7gwkx"]
 
 [ext_resource type="Texture2D" uid="uid://cnahugxpq6fvm" path="res://Assets/grasspath.jpg" id="1_yqkj2"]
 [ext_resource type="PackedScene" uid="uid://bvulxg8ghp2a1" path="res://Scenes/hand.tscn" id="2_b2agj"]
 [ext_resource type="Script" uid="uid://4fkh0d6ol7ms" path="res://Scripts/camera.gd" id="3_74cxr"]
-[ext_resource type="PackedScene" uid="uid://dl5mpff3p5f7v" path="res://Scenes/Units/general.tscn" id="3_gp7ii"]
 [ext_resource type="PackedScene" uid="uid://bcnqd82vnpqwn" path="res://Scenes/ui.tscn" id="5_yqkj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrau6"]
@@ -23,18 +22,32 @@ rotation = -1.56334
 scale = Vector2(2.96395, 3.26719)
 texture = ExtResource("1_yqkj2")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -162.0
+offset_top = -243.0
+offset_right = 1463.0
+offset_bottom = -221.0
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -159.0
+offset_top = -219.0
+offset_right = 1466.0
+offset_bottom = -197.0
+color = Color(0, 0, 1, 1)
+
 [node name="Territory" type="Area2D" parent="." groups=["Territory"]]
 position = Vector2(565, 632)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Territory"]
-position = Vector2(135.86, -857.172)
+position = Vector2(144, 181)
 shape = SubResource("RectangleShape2D_hrau6")
 
 [node name="EnemyTerritory" type="Area2D" parent="." groups=["EnemyTerritory"]]
 position = Vector2(565, 632)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyTerritory"]
-position = Vector2(134, -1766)
+position = Vector2(138, -1880)
 shape = SubResource("RectangleShape2D_hrau6")
 
 [node name="Hand" parent="." instance=ExtResource("2_b2agj")]
@@ -45,13 +58,6 @@ position = Vector2(718, 401)
 zoom = Vector2(0.8, 0.8)
 script = ExtResource("3_74cxr")
 min_zoom = 0.3
-
-[node name="General" parent="." instance=ExtResource("3_gp7ii")]
-position = Vector2(687, 696)
-
-[node name="General2" parent="." instance=ExtResource("3_gp7ii")]
-position = Vector2(644, -1153)
-isEnemy = true
 
 [node name="Walls" type="Node2D" parent="."]
 

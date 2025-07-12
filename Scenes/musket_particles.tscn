@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://gyk0nc8v4qp8"]
+
+[sub_resource type="Curve" id="Curve_0qo8r"]
+_limits = [0.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 2.13483), 0.0, 0.0, 0, 0, Vector2(1, 10), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_xn65i"]
+colors = PackedColorArray(1, 1, 1, 1, 0.647059, 0.647059, 0.647059, 0)
+
+[node name="MusketParticles" type="CPUParticles2D"]
+emitting = false
+amount = 15
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+gravity = Vector2(0, 0)
+linear_accel_min = 19.28
+linear_accel_max = 19.28
+damping_min = 1.0
+damping_max = 2.0
+angle_min = -190.8
+angle_max = 416.4
+scale_amount_min = 0.4
+scale_amount_curve = SubResource("Curve_0qo8r")
+color_ramp = SubResource("Gradient_xn65i")

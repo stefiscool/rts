@@ -41,6 +41,9 @@ var skirmishing = false
 var shooting = false
 var thrust_timer: float = 0.0
 var canFire = true
+var damaged = false
+var wounded = false
+var critical = false
 
 
 func _ready() -> void:
@@ -130,6 +133,15 @@ func _process(delta: float) -> void:
 		corpseInstance.position = global_position
 		corpseInstance.isEnemy = isEnemy
 		queue_free()
+	if (float(hp) / float(maxHp)) <= .9 and damaged == false:
+		morale -= 10
+		damaged = true
+	if (float(hp) / float(maxHp)) <= .5 and wounded == false:
+		morale -= 20
+		wounded = true
+	if (float(hp) / float(maxHp)) <= .1 and critical == false:
+		morale -= 30
+		critical = true
 	$UnitLabel/ColorRect/HPBar.scale.x = float(hp) / float(maxHp)
 	$UnitLabel/ColorRect/MoraleBar.scale.x = float(morale) / float(maxMorale)
 	if shooting == true and canFire == true:
@@ -164,9 +176,9 @@ func _on_range_area_entered(area: Area2D) -> void:
 	var territory = "EnemyTerritory" if isEnemy else "Territory"
 
 	if area.is_in_group(same_side_dead):
-		morale -= randi_range(5,10)
+		morale -= 5
 	elif area.is_in_group(enemy_dead):
-		morale += randi_range(5,10)
+		morale += 5
 	if area.is_in_group(territory):
 		morale += 30
 	

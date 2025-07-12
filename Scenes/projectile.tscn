@@ -3,17 +3,17 @@
 [ext_resource type="Script" uid="uid://523of1xmrbg8" path="res://Scripts/projectile.gd" id="1_f8cdk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_at5ip"]
-size = Vector2(64, 14)
+size = Vector2(18, 14)
 
 [node name="Projectile" type="Area2D"]
 script = ExtResource("1_f8cdk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_at5ip")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 rotation = 1.5708
-polygon = PackedVector2Array(0, -35, -8, 33, 0, 13, 9, 34)
+polygon = PackedVector2Array(-3.25799e-05, -9, -4.00002, -5.99999, -6, 2.17199e-05, -3.99998, 6.00001, 2.53399e-05, 7, 5.00002, 5.99998, 8, -2.89599e-05, 4.99997, -7.00002)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

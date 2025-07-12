@@ -1,6 +1,7 @@
 extends Area2D
 
 var canPlace = false
+var canPlaceEnemy = false
 @onready var unit = preload("res://Scenes/Units/infantry.tscn")
 
 
@@ -35,7 +36,7 @@ func _process(delta: float) -> void:
 		unitInstance.skills = Global.unitDict[Global.currentUnit]["skills"]
 		unitInstance.conditions = Global.unitDict[Global.currentUnit]["conditions"]
 		get_tree().get_root().add_child(unitInstance)
-	if Input.is_action_just_pressed("right_click") and canPlace:
+	if Input.is_action_just_pressed("right_click") and canPlaceEnemy:
 		var unitInstance = unit.instantiate()
 		unitInstance.position = get_global_mouse_position()
 		unitInstance.cost = Global.unitDict[Global.currentUnit]["cost"]
@@ -62,12 +63,15 @@ func _process(delta: float) -> void:
 		unitInstance.isEnemy = true
 		get_tree().get_root().add_child(unitInstance)
 func _on_area_entered(area: Area2D) -> void:
-	if area.name == "Territory":
+	if area.is_in_group("Territory"):
 		canPlace = true
-
+	if area.is_in_group("EnemyTerritory"):
+		canPlaceEnemy = true
 func _on_area_exited(area: Area2D) -> void:
-	if area.name == "Territory":
+	if area.is_in_group("Territory"):
 		canPlace = false
+	if area.is_in_group("EnemyTerritory"):
+		canPlaceEnemy = false
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Ally") or body.is_in_group("Enemy"):

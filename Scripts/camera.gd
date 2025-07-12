@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 		Engine.time_scale = 1.0
    
    # Use get_process_delta_time() for camera controls when time is stopped
-	var camera_delta = get_process_delta_time() + 0.01
+	var camera_delta = 0.03
    
 	if Input.is_action_just_pressed("zoom_in"):
 		zoom += Vector2(zoom_speed, zoom_speed) * camera_delta

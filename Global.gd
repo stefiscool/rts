@@ -9,6 +9,7 @@ var generalHealth = 2000
 var enemyGeneralHealth = 2000
 var descOpen = false
 var unitList = ["Imperial Officer","Imperial Swordsman", "Imperial Musketeer", "Imperial Sergeant", "Imperial Rifleman", "Imperial Sapper","Imperial Hussar", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
+var tabsMobe = true
 
 var unitDict = {
 	"Imperial Swordsman": {
@@ -75,7 +76,7 @@ var unitDict = {
 		"rangedDamage": 25,
 		"projectileSpeed": 1200,
 		"projectileLife": 3,
-		"rangeRadius": 600.0,
+		"rangeRadius": 500.0,
 		"rateOfFire": 3,
 		"isMelee": true,
 		"isRanged": true,
@@ -91,7 +92,7 @@ var unitDict = {
 		"maxSpeed": 220,
 		"size": 1.1,
 		"icon": preload("res://Assets/imperialOfficerIcon.png"),
-		"sprite": null,
+		"sprite": preload("res://Assets/imperialOfficer.png"),
 		"damage": 15,
 		"attackSpeed": 6000,
 		"meleeWeaponReach": 1.2,
@@ -99,7 +100,7 @@ var unitDict = {
 		"rangedDamage": 30,
 		"projectileSpeed": 1300,
 		"projectileLife": 3.5,
-		"rangeRadius": 650.0,
+		"rangeRadius": 200,
 		"rateOfFire": 2.5,
 		"isMelee": true,
 		"isRanged": true,
@@ -123,7 +124,7 @@ var unitDict = {
 		"rangedDamage": 35,
 		"projectileSpeed": 1500,
 		"projectileLife": 4,
-		"rangeRadius": 750.0,
+		"rangeRadius": 1000.0,
 		"rateOfFire": 2,
 		"isMelee": false,
 		"isRanged": true,
@@ -161,9 +162,9 @@ var unitDict = {
 		"maxMorale": 60,
 		"unitName": "Imperial Hussar",
 		"maxSpeed": 350,
-		"size": 1.3,
+		"size": 1.1,
 		"icon": preload("res://Assets/imperialHussarIcon.png"),
-		"sprite": null,
+		"sprite": preload("res://Assets/imperialHussar.png"),
 		"damage": 12,
 		"attackSpeed": 4000,
 		"meleeWeaponReach": 1.0,
@@ -174,10 +175,10 @@ var unitDict = {
 		"rangeRadius": 450.0,
 		"rateOfFire": 4,
 		"isMelee": true,
-		"isRanged": true,
-		"skills": ["Charge", "Skirmish"],
+		"isRanged": false,
+		"skills": [],
 		"conditions": [],
-		"desc": "A fast-moving cavalry unit armed with a saber and carbine for hit-and-run tactics. He excels at harassment and flanking maneuvers."
+		"desc": "A fast-moving rider armed with a cavalry saber. He excels at harassment and can be summoned on the flanks."
 	},
 	"Imperial Lancer": {
 		"cost": 22,
@@ -185,9 +186,9 @@ var unitDict = {
 		"maxMorale": 65,
 		"unitName": "Imperial Lancer",
 		"maxSpeed": 280,
-		"size": 1.4,
+		"size": 1.1,
 		"icon": preload("res://Assets/imperialLancerIcon.png"),
-		"sprite": null,
+		"sprite": preload("res://Assets/imperialLancer.png"),
 		"damage": 25,
 		"attackSpeed": 5000,
 		"meleeWeaponReach": 2.5,
@@ -209,9 +210,9 @@ var unitDict = {
 		"maxMorale": 70,
 		"unitName": "Imperial Dragoon",
 		"maxSpeed": 300,
-		"size": 1.3,
+		"size": 1.1,
 		"icon": preload("res://Assets/imperialDragoonIcon.png"),
-		"sprite": null,
+		"sprite": preload("res://Assets/imperialDragoon.png"),
 		"damage": 16,
 		"attackSpeed": 6000,
 		"meleeWeaponReach": 1.1,
@@ -219,13 +220,13 @@ var unitDict = {
 		"rangedDamage": 40,
 		"projectileSpeed": 1400,
 		"projectileLife": 3,
-		"rangeRadius": 700.0,
+		"rangeRadius": 300.0,
 		"rateOfFire": 1.5,
 		"isMelee": true,
 		"isRanged": true,
-		"skills": ["Charge"],
+		"skills": ["Skirmish"],
 		"conditions": [],
-		"desc": "An elite mounted soldier trained in both cavalry charges and dismounted combat. He carries a powerful musket and a cavalry saber for versatile battlefield roles."
+		"desc": "An elite mounted soldier who uses a cavalry carbine. He is very good at skirmishing."
 	},
 	"Imperial Cannon": {
 		"cost": 60,
