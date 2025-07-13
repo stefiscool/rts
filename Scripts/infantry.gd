@@ -34,6 +34,9 @@ var currentState = State.ATTACK
 @export var isEnemy = false
 @onready var projectile = preload("res://Scenes/projectile.tscn")
 @onready var corpse = preload("res://Scenes/corpse.tscn")
+@onready var musketSmoke = preload("res://Scenes/musket_particles.tscn")
+@onready var range_area = $Range
+
 var hp
 var speed
 var morale
@@ -44,16 +47,17 @@ var canFire = true
 var damaged = false
 var wounded = false
 var critical = false
+var scaredPlayed = false
 
 
 func _ready() -> void:
+	
 	scale = Vector2(size,size)
 	$HitBox/CollisionShape2D.scale.x = meleeWeaponReach
 	hp = maxHp
 	morale = maxMorale
 	speed = maxSpeed
-	var collision_shape = $Range/CollisionShape2D
-	collision_shape.shape.radius = rangeRadius
+	create_range_collision_shape()
 	$UnitLabel/ColorRect/Label.text = unitName
 	if isMelee == false:
 		$HitBox.queue_free()
@@ -100,6 +104,9 @@ func _physics_process(delta: float) -> void:
 				position += (enemy.position - position).normalized() * speed * delta
 				move_and_slide()
 			State.RETREAT:
+				if scaredPlayed == false:
+					$Fear.play()
+					scaredPlayed = true
 				look_at(enemy.position)
 				rotation_degrees -= 180
 				position -= (enemy.position - position).normalized() * speed * delta
@@ -124,6 +131,7 @@ func _process(delta: float) -> void:
 		hp = maxHp
 	if morale <= 0:
 		morale = 0
+
 		currentState = State.RETREAT
 	elif skirmishing == false:
 		currentState = State.ATTACK
@@ -145,6 +153,7 @@ func _process(delta: float) -> void:
 	$UnitLabel/ColorRect/HPBar.scale.x = float(hp) / float(maxHp)
 	$UnitLabel/ColorRect/MoraleBar.scale.x = float(morale) / float(maxMorale)
 	if shooting == true and canFire == true:
+		$Gun.play()
 		var projectileInstance = projectile.instantiate()
 		get_tree().get_root().add_child(projectileInstance)
 		projectileInstance.position = global_position
@@ -155,6 +164,11 @@ func _process(delta: float) -> void:
 		projectileInstance.damage = rangedDamage
 		if skills.has("Fireball"):
 			projectileInstance.skills.append("Fireball")
+		if skills.has("Gun"):
+			var musketSmokeInstance = musketSmoke.instantiate()
+			get_tree().get_root().add_child(musketSmokeInstance)
+			musketSmokeInstance.position = global_position
+			musketSmokeInstance.emitting = true
 		canFire = false
 		await get_tree().create_timer(rateOfFire).timeout
 		canFire = true
@@ -165,6 +179,7 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group(target_group):
 		speed = 0
 		body.hp -= damage
+		$Melee.play()
 		
 		await get_tree().create_timer(0.1).timeout
 		speed = maxSpeed
@@ -186,6 +201,11 @@ func _on_range_area_entered(area: Area2D) -> void:
 		
 
 func _on_range_body_entered(body: Node2D) -> void:
+	var target_group2 = "Ally" if isEnemy else "Enemy"
+	if body.is_in_group(target_group2):
+		var rand = randi_range(1,50)
+		if rand == 4:
+			$Charge.play()
 	if skills.has("Charge") and speed < maxSpeed + 100:
 		var target_group = "Ally" if isEnemy else "Enemy"
 		if body.is_in_group(target_group):
@@ -210,3 +230,32 @@ func _on_range_body_exited(body: Node2D) -> void:
 			shooting = false
 			if skills.has("Skirmish"):
 				skirmishing = false
+
+
+
+
+
+func create_range_collision_shape():
+	# Create a new CollisionShape2D node
+	var collision_shape = CollisionShape2D.new()
+	
+	# Create a new CircleShape2D resource
+	var circle_shape = CircleShape2D.new()
+	circle_shape.radius = rangeRadius
+	
+	# Assign the shape to the collision shape
+	collision_shape.shape = circle_shape
+	
+	# Add the CollisionShape2D as a child of the Range Area2D
+	range_area.add_child(collision_shape)
+
+# Optional: Function to update the radius after creation
+func update_range_radius(new_radius: float):
+	rangeRadius = new_radius
+	
+	# Find the collision shape and update its radius
+	for child in range_area.get_children():
+		if child is CollisionShape2D:
+			if child.shape is CircleShape2D:
+				child.shape.radius = rangeRadius
+			break

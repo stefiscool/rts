@@ -115,6 +115,7 @@ layout_mode = 2
 unitNumber = 0
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 493.0
 offset_top = 608.0
 offset_right = 624.0
@@ -143,6 +144,7 @@ text = "1:30"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="."]
+visible = false
 offset_left = 410.0
 offset_top = 1.0
 offset_right = 508.0
@@ -152,6 +154,7 @@ text = "Fortem Imperium"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="."]
+visible = false
 offset_left = 683.0
 offset_top = 1.0
 offset_right = 869.0

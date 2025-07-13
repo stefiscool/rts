@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2r8jb8o4a5qn"
+path="res://.godot/imported/epee-342933.mp3-c0639b241db3b008d77c85c6eb82e1dc.mp3str"
+
+[deps]
+
+source_file="res://Audio/new audio/epee-342933.mp3"
+dest_files=["res://.godot/imported/epee-342933.mp3-c0639b241db3b008d77c85c6eb82e1dc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

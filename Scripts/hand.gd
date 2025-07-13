@@ -12,6 +12,7 @@ var canPlaceEnemy = false
 func _process(delta: float) -> void:
 	global_position = get_global_mouse_position()
 	if Input.is_action_just_pressed("click") and canPlace:
+		$"place unit".play()
 		var unitInstance = unit.instantiate()
 		unitInstance.position = get_global_mouse_position()
 		unitInstance.cost = Global.unitDict[Global.currentUnit]["cost"]
@@ -37,6 +38,7 @@ func _process(delta: float) -> void:
 		unitInstance.conditions = Global.unitDict[Global.currentUnit]["conditions"]
 		get_tree().get_root().add_child(unitInstance)
 	if Input.is_action_just_pressed("right_click") and canPlaceEnemy:
+		$"place unit".play()
 		var unitInstance = unit.instantiate()
 		unitInstance.position = get_global_mouse_position()
 		unitInstance.cost = Global.unitDict[Global.currentUnit]["cost"]

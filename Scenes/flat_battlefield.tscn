@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcnqd82vnpqwn" path="res://Scenes/ui.tscn" id="5_yqkj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrau6"]
-size = Vector2(1472.28, 2057.66)
+size = Vector2(1480.14, 1029.83)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_larjp"]
 size = Vector2(159, 2313)
@@ -40,14 +40,14 @@ color = Color(0, 0, 1, 1)
 position = Vector2(565, 632)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Territory"]
-position = Vector2(144, 181)
+position = Vector2(147.93, -332.915)
 shape = SubResource("RectangleShape2D_hrau6")
 
 [node name="EnemyTerritory" type="Area2D" parent="." groups=["EnemyTerritory"]]
 position = Vector2(565, 632)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyTerritory"]
-position = Vector2(138, -1880)
+position = Vector2(118, -1387)
 shape = SubResource("RectangleShape2D_hrau6")
 
 [node name="Hand" parent="." instance=ExtResource("2_b2agj")]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7tbkxmwdjsk8"
+path="res://.godot/imported/epic-war-combat-scream-352707.mp3-b9b4198e67fe832d99a32cc9ef482842.mp3str"
+
+[deps]
+
+source_file="res://Audio/new audio/epic-war-combat-scream-352707.mp3"
+dest_files=["res://.godot/imported/epic-war-combat-scream-352707.mp3-b9b4198e67fe832d99a32cc9ef482842.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

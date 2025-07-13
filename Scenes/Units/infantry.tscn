@@ -1,9 +1,34 @@
-[gd_scene load_steps=8 format=3 uid="uid://n866p3epmiax"]
+[gd_scene load_steps=35 format=3 uid="uid://n866p3epmiax"]
 
 [ext_resource type="Script" uid="uid://dfdi6xwgiuspq" path="res://Scripts/infantry.gd" id="1_axss7"]
 [ext_resource type="Script" uid="uid://051t0eyuudss" path="res://Scripts/unit_label.gd" id="2_46pyy"]
 [ext_resource type="Texture2D" uid="uid://bvqbxo061v46x" path="res://Assets/imperialSwordsman (2).png" id="2_nnrfc"]
 [ext_resource type="Script" uid="uid://65fskr7lns6c" path="res://Scripts/unit_sprite.gd" id="3_el7ok"]
+[ext_resource type="AudioStream" uid="uid://cgewi6xhxryj3" path="res://Audio/man-scream-08-352438.mp3" id="5_36dbn"]
+[ext_resource type="AudioStream" uid="uid://bkujdkockifjm" path="res://Audio/man-scream-07-276686.mp3" id="6_sn8kf"]
+[ext_resource type="AudioStream" uid="uid://kvoipkrpna5a" path="res://Audio/man-scream-02-123080.mp3" id="7_xnawy"]
+[ext_resource type="AudioStream" uid="uid://crg57oteokkg8" path="res://Audio/man-death-scream-186763.mp3" id="8_46urm"]
+[ext_resource type="AudioStream" uid="uid://cn848cjdltho4" path="res://Audio/male-scream-in-fear-123079.mp3" id="9_136cd"]
+[ext_resource type="AudioStream" uid="uid://cp8neeu26w7wb" path="res://Audio/male-death-scream-horror-352706.mp3" id="10_41y6o"]
+[ext_resource type="AudioStream" uid="uid://cr4tvumnsaafi" path="res://Audio/shout-104972.mp3" id="11_xnawy"]
+[ext_resource type="AudioStream" uid="uid://cgsgfj4p6qwg1" path="res://Audio/scream-85294.mp3" id="12_46urm"]
+[ext_resource type="AudioStream" uid="uid://b7tbkxmwdjsk8" path="res://Audio/new audio/epic-war-combat-scream-352707.mp3" id="13_7qmmn"]
+[ext_resource type="AudioStream" uid="uid://0gx7myp322ko" path="res://Audio/powerful-cannon-shot-352459.mp3" id="13_8tceu"]
+[ext_resource type="AudioStream" uid="uid://bg382b1ogw5mn" path="res://Audio/new audio/man-screaming-6958.mp3" id="14_7topc"]
+[ext_resource type="AudioStream" uid="uid://bhmvs2kvfhxex" path="res://Audio/musket-explosion-6383.mp3" id="14_bkhit"]
+[ext_resource type="AudioStream" uid="uid://c7qpb7sk4ewtu" path="res://Audio/sword-blade-slicing-flesh-352708.mp3" id="15_0fnl8"]
+[ext_resource type="AudioStream" uid="uid://cpgeaob0piury" path="res://Audio/new audio/middle-ages-war-crywav-14780.mp3" id="15_len2g"]
+[ext_resource type="AudioStream" uid="uid://o7w8sha4u4n5" path="res://Audio/sword-clash-241729.mp3" id="16_r0f05"]
+[ext_resource type="AudioStream" uid="uid://c23n11cveib14" path="res://Audio/sword-sound-2-36274.mp3" id="17_7kmu1"]
+[ext_resource type="AudioStream" uid="uid://d3nqc6k4klcge" path="res://Audio/sword-sound-260274.mp3" id="18_wwehk"]
+[ext_resource type="AudioStream" uid="uid://c82r7pecpibsp" path="res://Audio/new audio/sharp-blade-slice-3-185146.mp3" id="20_fnrf3"]
+[ext_resource type="AudioStream" uid="uid://2r8jb8o4a5qn" path="res://Audio/new audio/epee-342933.mp3" id="21_l0e8h"]
+[ext_resource type="AudioStream" uid="uid://i3qm7nu7or4e" path="res://Audio/new audio/sword-slash-315218.mp3" id="24_6ud4c"]
+[ext_resource type="AudioStream" uid="uid://bwecqcqa68s31" path="res://Audio/new audio/sword-312216.mp3" id="25_enyns"]
+[ext_resource type="AudioStream" uid="uid://b0out04n708hd" path="res://Audio/new audio/swing-whoosh-weapon-5-189821.mp3" id="26_ph7o2"]
+[ext_resource type="AudioStream" uid="uid://2i244l7kg4hp" path="res://Audio/new audio/swing-whoosh-weapon-4-189820.mp3" id="27_pmrmu"]
+[ext_resource type="AudioStream" uid="uid://dypbrxkscucaq" path="res://Audio/new audio/swing-whoosh-weapon-3-189823.mp3" id="28_cc0cs"]
+[ext_resource type="AudioStream" uid="uid://dhwg5cl414irx" path="res://Audio/new audio/swing-whoosh-weapon-2-189822.mp3" id="29_1khhm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ynpd5"]
 radius = 18.0069
@@ -11,8 +36,38 @@ radius = 18.0069
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lk0ra"]
 size = Vector2(36.375, 7.5)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s3y8w"]
-radius = 175.99
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lsbnq"]
+streams_count = 6
+stream_0/stream = ExtResource("5_36dbn")
+stream_1/stream = ExtResource("6_sn8kf")
+stream_2/stream = ExtResource("7_xnawy")
+stream_3/stream = ExtResource("8_46urm")
+stream_4/stream = ExtResource("9_136cd")
+stream_5/stream = ExtResource("10_41y6o")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_136cd"]
+random_volume_offset_db = 1.0
+streams_count = 5
+stream_0/stream = ExtResource("11_xnawy")
+stream_1/stream = ExtResource("12_46urm")
+stream_2/stream = ExtResource("13_7qmmn")
+stream_3/stream = ExtResource("14_7topc")
+stream_4/stream = ExtResource("15_len2g")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3d2wm"]
+streams_count = 12
+stream_0/stream = ExtResource("15_0fnl8")
+stream_1/stream = ExtResource("16_r0f05")
+stream_2/stream = ExtResource("17_7kmu1")
+stream_3/stream = ExtResource("18_wwehk")
+stream_4/stream = ExtResource("24_6ud4c")
+stream_5/stream = ExtResource("25_enyns")
+stream_6/stream = ExtResource("26_ph7o2")
+stream_7/stream = ExtResource("27_pmrmu")
+stream_8/stream = ExtResource("28_cc0cs")
+stream_9/stream = ExtResource("29_1khhm")
+stream_10/stream = ExtResource("20_fnrf3")
+stream_11/stream = ExtResource("21_l0e8h")
 
 [node name="Infantry" type="CharacterBody2D"]
 script = ExtResource("1_axss7")
@@ -111,10 +166,22 @@ offset_bottom = 34.0
 color = Color(0.244744, 0.771997, 0.999999, 1)
 
 [node name="Range" type="Area2D" parent="."]
-visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
-shape = SubResource("CircleShape2D_s3y8w")
+[node name="Fear" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_lsbnq")
+
+[node name="Charge" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_136cd")
+
+[node name="Cannon" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_8tceu")
+
+[node name="Gun" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_bkhit")
+
+[node name="Melee" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_3d2wm")
+volume_db = -17.96
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]

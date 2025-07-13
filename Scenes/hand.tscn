@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvulxg8ghp2a1"]
+[gd_scene load_steps=5 format=3 uid="uid://bvulxg8ghp2a1"]
 
 [ext_resource type="Script" uid="uid://dvnns3gv6sdk1" path="res://Scripts/hand.gd" id="1_bfjfo"]
+[ext_resource type="AudioStream" uid="uid://b6qifcps30owl" path="res://Audio/army-rank-up-1-103871.mp3" id="2_u7o8q"]
+[ext_resource type="AudioStream" uid="uid://7i1bpuumyw0k" path="res://Audio/snare-112754.mp3" id="3_vumah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xn6l"]
 
@@ -10,6 +12,13 @@ script = ExtResource("1_bfjfo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -0.00118446
 shape = SubResource("RectangleShape2D_4xn6l")
+
+[node name="place unit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_u7o8q")
+autoplay = true
+
+[node name="not enough mana" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vumah")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

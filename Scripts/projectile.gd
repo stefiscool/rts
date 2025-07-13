@@ -6,9 +6,12 @@ var life = 2.0
 var skills = []
 @onready var explosion = preload("res://Scenes/explosion.tscn")
 
+
 func _ready() -> void:
+	
 	await get_tree().create_timer(life).timeout
 	queue_free()
+	
 	
 func _on_body_entered(body):
 	var target_group = "Ally" if isEnemy else "Enemy"

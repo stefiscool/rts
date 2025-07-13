@@ -1,17 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://gyk0nc8v4qp8"]
 
 [sub_resource type="Curve" id="Curve_0qo8r"]
-_limits = [0.0, 10.0, 0.0, 1.0]
-_data = [Vector2(0, 2.13483), 0.0, 0.0, 0, 0, Vector2(1, 10), 0.0, 0.0, 0, 0]
-point_count = 2
+_limits = [0.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 2.13483), 0.0, 0.0, 0, 0, Vector2(0.0190114, 48.0115), 1638.24, 1638.24, 0, 0, Vector2(0.106464, 178.821), 174.745, 174.745, 0, 0, Vector2(1, 200), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="Gradient" id="Gradient_xn65i"]
-colors = PackedColorArray(1, 1, 1, 1, 0.647059, 0.647059, 0.647059, 0)
+offsets = PackedFloat32Array(0, 0.0355556, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.744314, 0.744314, 0.744314, 0.275556, 0.647059, 0.647059, 0.647059, 0)
 
 [node name="MusketParticles" type="CPUParticles2D"]
 emitting = false
-amount = 15
-lifetime = 2.0
+amount = 5
+lifetime = 15.0
 one_shot = true
 explosiveness = 1.0
 gravity = Vector2(0, 0)
