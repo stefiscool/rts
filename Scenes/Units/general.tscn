@@ -1,9 +1,35 @@
-[gd_scene load_steps=8 format=3 uid="uid://dl5mpff3p5f7v"]
+[gd_scene load_steps=50 format=3 uid="uid://dl5mpff3p5f7v"]
 
 [ext_resource type="Script" uid="uid://dfdi6xwgiuspq" path="res://Scripts/infantry.gd" id="1_1roc2"]
 [ext_resource type="Script" uid="uid://051t0eyuudss" path="res://Scripts/unit_label.gd" id="2_1a2cs"]
-[ext_resource type="Texture2D" uid="uid://bvqbxo061v46x" path="res://Assets/imperialSwordsman (2).png" id="3_cpbjo"]
+[ext_resource type="Texture2D" uid="uid://deh5vcav4ms38" path="res://Assets/imperialGeneral.png" id="3_bmjlg"]
+[ext_resource type="Texture2D" uid="uid://dnmij5txj7myd" path="res://Assets/maaaaaaaaaaaaaaagic.png" id="3_cpbjo"]
 [ext_resource type="Script" uid="uid://65fskr7lns6c" path="res://Scripts/unit_sprite.gd" id="4_bmjlg"]
+[ext_resource type="AudioStream" uid="uid://cgewi6xhxryj3" path="res://Audio/man-scream-08-352438.mp3" id="6_th6e5"]
+[ext_resource type="AudioStream" uid="uid://bkujdkockifjm" path="res://Audio/man-scream-07-276686.mp3" id="7_c1mtc"]
+[ext_resource type="AudioStream" uid="uid://kvoipkrpna5a" path="res://Audio/man-scream-02-123080.mp3" id="8_rjfrs"]
+[ext_resource type="AudioStream" uid="uid://crg57oteokkg8" path="res://Audio/man-death-scream-186763.mp3" id="9_suefe"]
+[ext_resource type="AudioStream" uid="uid://cn848cjdltho4" path="res://Audio/male-scream-in-fear-123079.mp3" id="10_f3gwn"]
+[ext_resource type="AudioStream" uid="uid://cp8neeu26w7wb" path="res://Audio/male-death-scream-horror-352706.mp3" id="11_6hrsg"]
+[ext_resource type="AudioStream" uid="uid://cr4tvumnsaafi" path="res://Audio/shout-104972.mp3" id="12_dqveq"]
+[ext_resource type="AudioStream" uid="uid://cgsgfj4p6qwg1" path="res://Audio/scream-85294.mp3" id="13_543kl"]
+[ext_resource type="AudioStream" uid="uid://b7tbkxmwdjsk8" path="res://Audio/new audio/epic-war-combat-scream-352707.mp3" id="14_08tpk"]
+[ext_resource type="AudioStream" uid="uid://bg382b1ogw5mn" path="res://Audio/new audio/man-screaming-6958.mp3" id="15_duejd"]
+[ext_resource type="AudioStream" uid="uid://cpgeaob0piury" path="res://Audio/new audio/middle-ages-war-crywav-14780.mp3" id="16_foov2"]
+[ext_resource type="AudioStream" uid="uid://0gx7myp322ko" path="res://Audio/powerful-cannon-shot-352459.mp3" id="17_ws64e"]
+[ext_resource type="AudioStream" uid="uid://bhmvs2kvfhxex" path="res://Audio/musket-explosion-6383.mp3" id="18_7mg1i"]
+[ext_resource type="AudioStream" uid="uid://c7qpb7sk4ewtu" path="res://Audio/sword-blade-slicing-flesh-352708.mp3" id="19_a0th4"]
+[ext_resource type="AudioStream" uid="uid://o7w8sha4u4n5" path="res://Audio/sword-clash-241729.mp3" id="20_70a50"]
+[ext_resource type="AudioStream" uid="uid://c82r7pecpibsp" path="res://Audio/new audio/sharp-blade-slice-3-185146.mp3" id="21_bx838"]
+[ext_resource type="AudioStream" uid="uid://2r8jb8o4a5qn" path="res://Audio/new audio/epee-342933.mp3" id="22_cs07i"]
+[ext_resource type="AudioStream" uid="uid://c23n11cveib14" path="res://Audio/sword-sound-2-36274.mp3" id="23_23m5w"]
+[ext_resource type="AudioStream" uid="uid://d3nqc6k4klcge" path="res://Audio/sword-sound-260274.mp3" id="24_a1gni"]
+[ext_resource type="AudioStream" uid="uid://i3qm7nu7or4e" path="res://Audio/new audio/sword-slash-315218.mp3" id="25_1xe40"]
+[ext_resource type="AudioStream" uid="uid://bwecqcqa68s31" path="res://Audio/new audio/sword-312216.mp3" id="26_xa1bi"]
+[ext_resource type="AudioStream" uid="uid://b0out04n708hd" path="res://Audio/new audio/swing-whoosh-weapon-5-189821.mp3" id="27_vv7nb"]
+[ext_resource type="AudioStream" uid="uid://2i244l7kg4hp" path="res://Audio/new audio/swing-whoosh-weapon-4-189820.mp3" id="28_7kli2"]
+[ext_resource type="AudioStream" uid="uid://dypbrxkscucaq" path="res://Audio/new audio/swing-whoosh-weapon-3-189823.mp3" id="29_btkus"]
+[ext_resource type="AudioStream" uid="uid://dhwg5cl414irx" path="res://Audio/new audio/swing-whoosh-weapon-2-189822.mp3" id="30_bbnfy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ynpd5"]
 radius = 20.0062
@@ -14,19 +40,140 @@ size = Vector2(100.188, 7.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_hacmb"]
 radius = 76.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmjlg"]
+atlas = ExtResource("3_cpbjo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pp0t"]
+atlas = ExtResource("3_cpbjo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lviji"]
+atlas = ExtResource("3_cpbjo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbdxq"]
+atlas = ExtResource("3_cpbjo")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elqa5"]
+atlas = ExtResource("3_cpbjo")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyjsj"]
+atlas = ExtResource("3_cpbjo")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p463b"]
+atlas = ExtResource("3_cpbjo")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhl8s"]
+atlas = ExtResource("3_cpbjo")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s07ee"]
+atlas = ExtResource("3_cpbjo")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wisx"]
+atlas = ExtResource("3_cpbjo")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek102"]
+atlas = ExtResource("3_cpbjo")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1rxk"]
+atlas = ExtResource("3_cpbjo")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3dbke"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmjlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pp0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lviji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbdxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elqa5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyjsj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p463b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhl8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s07ee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wisx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek102")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1rxk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_v31oo"]
+streams_count = 6
+stream_0/stream = ExtResource("6_th6e5")
+stream_1/stream = ExtResource("7_c1mtc")
+stream_2/stream = ExtResource("8_rjfrs")
+stream_3/stream = ExtResource("9_suefe")
+stream_4/stream = ExtResource("10_f3gwn")
+stream_5/stream = ExtResource("11_6hrsg")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yy8t3"]
+random_volume_offset_db = 1.0
+streams_count = 5
+stream_0/stream = ExtResource("12_dqveq")
+stream_1/stream = ExtResource("13_543kl")
+stream_2/stream = ExtResource("14_08tpk")
+stream_3/stream = ExtResource("15_duejd")
+stream_4/stream = ExtResource("16_foov2")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8r47x"]
+streams_count = 12
+stream_0/stream = ExtResource("19_a0th4")
+stream_1/stream = ExtResource("20_70a50")
+stream_2/stream = ExtResource("23_23m5w")
+stream_3/stream = ExtResource("24_a1gni")
+stream_4/stream = ExtResource("25_1xe40")
+stream_5/stream = ExtResource("26_xa1bi")
+stream_6/stream = ExtResource("27_vv7nb")
+stream_7/stream = ExtResource("28_7kli2")
+stream_8/stream = ExtResource("29_btkus")
+stream_9/stream = ExtResource("30_bbnfy")
+stream_10/stream = ExtResource("21_bx838")
+stream_11/stream = ExtResource("22_cs07i")
+
 [node name="General" type="CharacterBody2D"]
 script = ExtResource("1_1roc2")
 maxHp = 500
 maxMorale = 100
 unitName = "General"
 maxSpeed = 0
-attackSpeed = 2000
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -18.0
-offset_top = -18.0
-offset_right = 16.0
-offset_bottom = 17.0
+size = 1.3
+attackSpeed = 200
+skills = ["General"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
@@ -104,12 +251,41 @@ offset_right = 104.0
 offset_bottom = 34.0
 color = Color(0.244744, 0.771997, 0.999999, 1)
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -2)
+rotation = 1.5675
+texture = ExtResource("3_bmjlg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+position = Vector2(-13, -12)
+scale = Vector2(0.625, 0.59375)
+sprite_frames = SubResource("SpriteFrames_3dbke")
+autoplay = "default"
+frame_progress = 0.314029
+
 [node name="UnitSprite" type="Sprite2D" parent="."]
-position = Vector2(5, 0)
+visible = false
+position = Vector2(-13, -14)
 rotation = 1.5708
 texture = ExtResource("3_cpbjo")
 hframes = 3
 vframes = 4
 script = ExtResource("4_bmjlg")
+
+[node name="Fear" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_v31oo")
+
+[node name="Charge" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_yy8t3")
+
+[node name="Cannon" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_ws64e")
+
+[node name="Gun" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_7mg1i")
+
+[node name="Melee" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_8r47x")
+volume_db = -17.96
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

@@ -1,12 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7tu6r7p7gwkx"]
+[gd_scene load_steps=12 format=3 uid="uid://b7tu6r7p7gwkx"]
 
 [ext_resource type="Texture2D" uid="uid://cnahugxpq6fvm" path="res://Assets/grasspath.jpg" id="1_yqkj2"]
 [ext_resource type="PackedScene" uid="uid://bvulxg8ghp2a1" path="res://Scenes/hand.tscn" id="2_b2agj"]
 [ext_resource type="Script" uid="uid://4fkh0d6ol7ms" path="res://Scripts/camera.gd" id="3_74cxr"]
+[ext_resource type="PackedScene" uid="uid://dl5mpff3p5f7v" path="res://Scenes/Units/general.tscn" id="5_sianv"]
 [ext_resource type="PackedScene" uid="uid://bcnqd82vnpqwn" path="res://Scenes/ui.tscn" id="5_yqkj2"]
+[ext_resource type="PackedScene" uid="uid://c3bu2b6hj7wgb" path="res://Scenes/spawn_point.tscn" id="6_sianv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrau6"]
-size = Vector2(1480.14, 1029.83)
+size = Vector2(1480.14, 242.915)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sianv"]
+size = Vector2(1484.07, 12.4575)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1fs1"]
+size = Vector2(1478.07, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_larjp"]
 size = Vector2(159, 2313)
@@ -40,15 +48,23 @@ color = Color(0, 0, 1, 1)
 position = Vector2(565, 632)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Territory"]
-position = Vector2(147.93, -332.915)
+position = Vector2(133, 30)
 shape = SubResource("RectangleShape2D_hrau6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Territory"]
+position = Vector2(137.965, 168.771)
+shape = SubResource("RectangleShape2D_sianv")
 
 [node name="EnemyTerritory" type="Area2D" parent="." groups=["EnemyTerritory"]]
 position = Vector2(565, 632)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyTerritory"]
-position = Vector2(118, -1387)
+position = Vector2(140, -1728)
 shape = SubResource("RectangleShape2D_hrau6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="EnemyTerritory"]
+position = Vector2(139, -1869)
+shape = SubResource("RectangleShape2D_d1fs1")
 
 [node name="Hand" parent="." instance=ExtResource("2_b2agj")]
 position = Vector2(-6, 1)
@@ -108,3 +124,22 @@ offset_bottom = -1240.0
 color = Color(0, 0, 0, 1)
 
 [node name="UI" parent="." instance=ExtResource("5_yqkj2")]
+
+[node name="General" parent="." instance=ExtResource("5_sianv")]
+position = Vector2(693, 732)
+
+[node name="General2" parent="." instance=ExtResource("5_sianv")]
+position = Vector2(685, -1158)
+isEnemy = true
+
+[node name="SpawnPoint" parent="." instance=ExtResource("6_sianv")]
+position = Vector2(112, -1124)
+
+[node name="SpawnPoint2" parent="." instance=ExtResource("6_sianv")]
+position = Vector2(322, -1132)
+
+[node name="SpawnPoint3" parent="." instance=ExtResource("6_sianv")]
+position = Vector2(908, -1129)
+
+[node name="SpawnPoint4" parent="." instance=ExtResource("6_sianv")]
+position = Vector2(1266, -1119)

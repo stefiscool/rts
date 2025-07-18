@@ -51,7 +51,6 @@ var scaredPlayed = false
 
 
 func _ready() -> void:
-	
 	scale = Vector2(size,size)
 	$HitBox/CollisionShape2D.scale.x = meleeWeaponReach
 	hp = maxHp
@@ -141,6 +140,11 @@ func _process(delta: float) -> void:
 		corpseInstance.position = global_position
 		corpseInstance.isEnemy = isEnemy
 		queue_free()
+		if skills.has("General"):
+			if isEnemy:
+				get_tree().change_scene_to_file("res://Scenes/victory.tscn")
+			else:
+				get_tree().change_scene_to_file("res://Scenes/defeat.tscn")
 	if (float(hp) / float(maxHp)) <= .9 and damaged == false:
 		morale -= 10
 		damaged = true
@@ -154,6 +158,8 @@ func _process(delta: float) -> void:
 	$UnitLabel/ColorRect/MoraleBar.scale.x = float(morale) / float(maxMorale)
 	if shooting == true and canFire == true:
 		$Gun.play()
+		if skills.has("Cannon"):
+			$Cannon.play()
 		var projectileInstance = projectile.instantiate()
 		get_tree().get_root().add_child(projectileInstance)
 		projectileInstance.position = global_position

@@ -1,28 +1,34 @@
 extends Node
 
 var currentUnit = "Imperial Swordsman"
+var currentEnemyUnit = "Imperial Swordsman"
 var mana = 50
 var maxMana = 100
+var enemyMana = 10
+var enemyMaxMana = 50
+var onUI = false
+
 var minutes = 2
 var seconds = 59
 var generalHealth = 2000
 var enemyGeneralHealth = 2000
 var descOpen = false
 var unitList = ["Imperial Officer","Imperial Swordsman", "Imperial Musketeer", "Imperial Sergeant", "Imperial Rifleman", "Imperial Sapper","Imperial Hussar", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
-var tabsMobe = true
+var enemyUnitList = ["Imperial Officer","Imperial Swordsman", "Imperial Musketeer", "Imperial Sergeant", "Imperial Rifleman", "Imperial Sapper","Imperial Hussar", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
+var gamemode = "Clash"
 
 var unitDict = {
 	"Imperial Swordsman": {
 		"cost": 10,
-		"maxHp": 100,
-		"maxMorale": 50,
+		"maxHp": 110,
+		"maxMorale": 60,
 		"unitName": "Imperial Swordsman",
 		"maxSpeed": 300,
 		"size": 1.0,
 		"icon": preload("res://Assets/imperialSwordsmanIcon.png"),
 		"sprite": preload("res://Assets/imperialSwordsman (2).png"),
 		"damage": 10,
-		"attackSpeed": 200,
+		"attackSpeed": 250,
 		"meleeWeaponReach": 1.2,
 		"thrustAmplitude": 50,
 		"rangedDamage": 20,
@@ -69,8 +75,8 @@ var unitDict = {
 		"size": 1.1,
 		"icon": preload("res://Assets/imperialSergeantIcon.png"),
 		"sprite": preload("res://Assets/imperialSergeant.png"),
-		"damage": 18,
-		"attackSpeed": 2,
+		"damage": 25,
+		"attackSpeed": 4,
 		"meleeWeaponReach": 0.5,
 		"thrustAmplitude": 35,
 		"rangedDamage": 50,
@@ -161,12 +167,12 @@ var unitDict = {
 		"maxHp": 110,
 		"maxMorale": 60,
 		"unitName": "Imperial Hussar",
-		"maxSpeed": 350,
+		"maxSpeed": 500,
 		"size": 1.1,
 		"icon": preload("res://Assets/imperialHussarIcon.png"),
 		"sprite": preload("res://Assets/imperialHussar.png"),
 		"damage": 12,
-		"attackSpeed": 4000,
+		"attackSpeed": 200,
 		"meleeWeaponReach": 1.0,
 		"thrustAmplitude": 55,
 		"rangedDamage": 20,
@@ -181,16 +187,16 @@ var unitDict = {
 		"desc": "A fast-moving rider armed with a cavalry saber. He excels at harassment and can be summoned on the flanks."
 	},
 	"Imperial Lancer": {
-		"cost": 22,
+		"cost": 38,
 		"maxHp": 130,
 		"maxMorale": 65,
 		"unitName": "Imperial Lancer",
-		"maxSpeed": 280,
+		"maxSpeed": 480,
 		"size": 1.1,
 		"icon": preload("res://Assets/imperialLancerIcon.png"),
 		"sprite": preload("res://Assets/imperialLancer.png"),
-		"damage": 25,
-		"attackSpeed": 5000,
+		"damage": 40,
+		"attackSpeed": 5,
 		"meleeWeaponReach": 2.5,
 		"thrustAmplitude": 80,
 		"rangedDamage": 0,
@@ -209,7 +215,7 @@ var unitDict = {
 		"maxHp": 125,
 		"maxMorale": 70,
 		"unitName": "Imperial Dragoon",
-		"maxSpeed": 300,
+		"maxSpeed": 400,
 		"size": 1.1,
 		"icon": preload("res://Assets/imperialDragoonIcon.png"),
 		"sprite": preload("res://Assets/imperialDragoon.png"),
@@ -222,18 +228,18 @@ var unitDict = {
 		"projectileLife": 3,
 		"rangeRadius": 300.0,
 		"rateOfFire": 1.5,
-		"isMelee": true,
+		"isMelee": false,
 		"isRanged": true,
 		"skills": ["Skirmish", "Gun"],
 		"conditions": [],
 		"desc": "An elite mounted soldier who uses a cavalry carbine. He is very good at skirmishing."
 	},
 	"Imperial Cannon": {
-		"cost": 60,
-		"maxHp": 200,
+		"cost": 40,
+		"maxHp": 30,
 		"maxMorale": 100,
 		"unitName": "Imperial Cannon",
-		"maxSpeed": 80,
+		"maxSpeed": 10,
 		"size": 1.2,
 		"icon": preload("res://Assets/imperialCannonerIcon.png"),
 		"sprite": preload("res://Assets/imperialCannon.png"),
@@ -242,14 +248,14 @@ var unitDict = {
 		"meleeWeaponReach": 0.5,
 		"thrustAmplitude": 20,
 		"rangedDamage": 80,
-		"projectileSpeed": 4800,
+		"projectileSpeed": 6800,
 		"projectileLife": 5,
 		"rangeRadius": 1500.0,
-		"rateOfFire": 20,
+		"rateOfFire": 15,
 		"isMelee": false,
 		"isRanged": true,
-		"skills": ["Fireball"],
-		"conditions": ["Burn"],
+		"skills": ["Fireball", "Cannon"],
+		"conditions": [],
 		"desc": "A massive artillery piece that can devastate enemy formations from extreme range. It requires time to reload but delivers crushing explosive damage."
 	},
 	"Goblin": {
@@ -277,3 +283,13 @@ var unitDict = {
 		"desc": "A small green monster who works for the necromancer as a slave-soldier. He is fast, but weak and cowardly."
 	}
 }
+func _ready() -> void:
+	while true:
+		enemyMana += 1
+		mana += 1
+		await get_tree().create_timer(0.1).timeout
+		
+func _process(delta: float) -> void:
+	mana = clamp(mana, 0, maxMana)
+	enemyMana = clamp(enemyMana, 0, enemyMaxMana)
+	

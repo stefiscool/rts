@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://6q2jd2hqxity"]
+
+[node name="victory" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -233.0
+offset_top = -146.0
+offset_right = 2020.0
+offset_bottom = 952.0
+color = Color(0, 0.568627, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 62.0
+offset_top = 180.0
+offset_right = 1109.0
+offset_bottom = 431.0
+theme_override_colors/font_color = Color(0.886683, 0.733929, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 250
+text = "Victory YAY"
