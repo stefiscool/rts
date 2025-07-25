@@ -13,7 +13,7 @@ var seconds = 59
 var generalHealth = 2000
 var enemyGeneralHealth = 2000
 var descOpen = false
-var unitList = ["Imperial Officer","Imperial Swordsman", "Imperial Musketeer", "Imperial Sergeant", "Imperial Rifleman", "Imperial Sapper","Imperial Hussar", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
+var unitList = ["Goblin","Spear Goblin", "Dart Goblin", "Orc", "Hobgoblin", "Ogre","Imperial Hussar", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
 var enemyUnitList = ["Imperial Officer","Imperial Swordsman", "Imperial Musketeer", "Imperial Sergeant", "Imperial Rifleman", "Imperial Sapper","Imperial Hussar", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
 var gamemode = "Clash"
 
@@ -281,9 +281,131 @@ var unitDict = {
 		"skills": ["Thrust"],
 		"conditions": [],
 		"desc": "A small green monster who works for the necromancer as a slave-soldier. He is fast, but weak and cowardly."
+	},
+	"Spear Goblin": {
+		"cost": 7,
+		"maxHp": 35,
+		"maxMorale": 20,
+		"unitName": "Spear Goblin",
+		"maxSpeed": 230,
+		"size": 0.8,
+		"icon": preload("res://Assets/imperialSwordsmanIcon.png"),
+		"sprite": preload("res://Assets/spearGoblin.png"),
+		"damage": 10,
+		"attackSpeed": 20,
+		"meleeWeaponReach": 0.8,
+		"thrustAmplitude": 25,
+		"rangedDamage": 20,
+		"projectileSpeed": 400,
+		"projectileLife": 1,
+		"rangeRadius": 300.0,
+		"rateOfFire": 1,
+		"isMelee": true,
+		"isRanged": true,
+		"skills": ["Thrust"],
+		"conditions": [],
+		"desc": "A goblin with throwing spears. He throws them, and uses them in melee."
+	},
+	"Dart Goblin": {
+		"cost": 15,
+		"maxHp": 30,
+		"maxMorale": 35,
+		"unitName": "Dart Goblin",
+		"maxSpeed": 230,
+		"size": 0.8,
+		"icon": preload("res://Assets/imperialSwordsmanIcon.png"),
+		"sprite": preload("res://Assets/dartGoggins.png"),
+		"damage": 5,
+		"attackSpeed": 10,
+		"meleeWeaponReach": 0.8,
+		"thrustAmplitude": 25,
+		"rangedDamage": 10,
+		"projectileSpeed": 600,
+		"projectileLife": 1,
+		"rangeRadius": 200.0,
+		"rateOfFire": 0.5,
+		"isMelee": false,
+		"isRanged": true,
+		"skills": [],
+		"conditions": ["Skirmish"],
+		"desc": "A goblin with a piece of bamboo in his long nose. He blows out poisonous darts."
+	},
+	"Orc": {
+		"cost": 20,
+		"maxHp": 120,
+		"maxMorale": 60,
+		"unitName": "Orc",
+		"maxSpeed": 180,
+		"size": 1.1,
+		"icon": preload("res://Assets/imperialSwordsmanIcon.png"),
+		"sprite": preload("res://Assets/orc.png"),
+		"damage": 20,
+		"attackSpeed": 180,
+		"meleeWeaponReach": 1,
+		"thrustAmplitude": 25,
+		"rangedDamage": 20,
+		"projectileSpeed": 1000,
+		"projectileLife": 2,
+		"rangeRadius": 500.0,
+		"rateOfFire": 0.5,
+		"isMelee": true,
+		"isRanged": false,
+		"skills": [],
+		"conditions": [],
+		"desc": "A big pig-faced brute who was hired by the necromancer. He is strong but slow."
+	},
+	"Hobgoblin": {
+		"cost": 25,
+		"maxHp": 150,
+		"maxMorale": 100,
+		"unitName": "Hobgoblin",
+		"maxSpeed": 200,
+		"size": 1.0,
+		"icon": preload("res://Assets/imperialSwordsmanIcon.png"),
+		"sprite": preload("res://Assets/hobgoblin.png"),
+		"damage": 30,
+		"attackSpeed": 170,
+		"meleeWeaponReach": 1,
+		"thrustAmplitude": 25,
+		"rangedDamage": 20,
+		"projectileSpeed": 1000,
+		"projectileLife": 2,
+		"rangeRadius": 500.0,
+		"rateOfFire": 0.5,
+		"isMelee": true,
+		"isRanged": false,
+		"skills": [],
+		"conditions": [],
+		"desc": "A goblin officer who is respected in the Goblin army. He wears heavy armor."
+	},
+	"Ogre": {
+		"cost": 45,
+		"maxHp": 250,
+		"maxMorale": 80,
+		"unitName": "Ogre",
+		"maxSpeed": 100,
+		"size": 1.5,
+		"icon": preload("res://Assets/imperialSwordsmanIcon.png"),
+		"sprite": preload("res://Assets/ogre.png"),
+		"damage": 50,
+		"attackSpeed": 110,
+		"meleeWeaponReach": 1,
+		"thrustAmplitude": 25,
+		"rangedDamage": 20,
+		"projectileSpeed": 1000,
+		"projectileLife": 2,
+		"rangeRadius": 500.0,
+		"rateOfFire": 0.5,
+		"isMelee": true,
+		"isRanged": false,
+		"skills": [],
+		"conditions": [],
+		"desc": "A gigantic monster with a small head. He uses his club to take out swarms of enemies."
 	}
 }
+
 func _ready() -> void:
+	
 	while true:
 		enemyMana += 1
 		mana += 1
