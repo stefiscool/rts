@@ -8,7 +8,11 @@ var skills = []
 
 
 func _ready() -> void:
-	
+	await get_tree().create_timer(0.1).timeout
+	if skills.has("Fireball"):
+		
+		scale.x += 2
+		scale.y += 2
 	await get_tree().create_timer(life).timeout
 	queue_free()
 	

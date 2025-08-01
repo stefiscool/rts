@@ -6,7 +6,6 @@ var canPlace = false
 
 
 func _process(delta: float) -> void:
-	print(str(Global.onUI))
 	global_position = get_global_mouse_position()
 	if Input.is_action_just_pressed("click") and canPlace and (Global.mana >= Global.unitDict[Global.currentUnit]["cost"]):
 		$"place unit".play()

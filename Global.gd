@@ -3,9 +3,9 @@ extends Node
 var currentUnit = "Imperial Swordsman"
 var currentEnemyUnit = "Imperial Swordsman"
 var mana = 50
-var maxMana = 100
-var enemyMana = 10
-var enemyMaxMana = 50
+var maxMana = 1000
+var enemyMana = 50
+var enemyMaxMana = 1000
 var onUI = false
 
 var minutes = 2
@@ -13,8 +13,8 @@ var seconds = 59
 var generalHealth = 2000
 var enemyGeneralHealth = 2000
 var descOpen = false
-var unitList = ["Goblin","Spear Goblin", "Dart Goblin", "Orc", "Hobgoblin", "Ogre","Imperial Hussar", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
-var enemyUnitList = ["Imperial Officer","Imperial Swordsman", "Imperial Musketeer", "Imperial Sergeant", "Imperial Rifleman", "Imperial Sapper","Imperial Hussar", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
+var unitList = ["Imperial Officer","Imperial Swordsman", "Imperial Musketeer", "Imperial Sergeant", "Imperial Rifleman", "Imperial Sapper","Imperial Hussar", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
+var enemyUnitList = ["Goblin","Spear Goblin", "Dart Goblin", "Orc", "Hobgoblin", "Ogre","Goblin","Spear Goblin", "Dart Goblin", "Orc"]
 var gamemode = "Clash"
 
 var unitDict = {
@@ -23,7 +23,7 @@ var unitDict = {
 		"maxHp": 110,
 		"maxMorale": 60,
 		"unitName": "Imperial Swordsman",
-		"maxSpeed": 300,
+		"maxSpeed": 240,
 		"size": 1.0,
 		"icon": preload("res://Assets/imperialSwordsmanIcon.png"),
 		"sprite": preload("res://Assets/imperialSwordsman (2).png"),
@@ -59,7 +59,7 @@ var unitDict = {
 		"projectileSpeed": 3500,
 		"projectileLife": 3,
 		"rangeRadius": 750.0,
-		"rateOfFire": 10,
+		"rateOfFire": 8,
 		"isMelee": false,
 		"isRanged": true,
 		"skills": ["Skirmish","Gun"],
@@ -83,7 +83,7 @@ var unitDict = {
 		"projectileSpeed": 3000,
 		"projectileLife": 3,
 		"rangeRadius": 500.0,
-		"rateOfFire": 15,
+		"rateOfFire": 10,
 		"isMelee": true,
 		"isRanged": true,
 		"skills": ["Morale Aura", "Thrust","Gun"],
@@ -107,7 +107,7 @@ var unitDict = {
 		"projectileSpeed": 1300,
 		"projectileLife": 3.5,
 		"rangeRadius": 300,
-		"rateOfFire": 10,
+		"rateOfFire": 5,
 		"isMelee": true,
 		"isRanged": true,
 		"skills": ["Morale Aura", "Gun"],
@@ -119,7 +119,7 @@ var unitDict = {
 		"maxHp": 85,
 		"maxMorale": 45,
 		"unitName": "Imperial Rifleman",
-		"maxSpeed": 190,
+		"maxSpeed": 250,
 		"size": 1.0,
 		"icon": preload("res://Assets/imperialRiflemanIcon (1).png"),
 		"sprite": preload("res://Assets/imperialRifleman.png"),
@@ -127,11 +127,11 @@ var unitDict = {
 		"attackSpeed": 5000,
 		"meleeWeaponReach": 0.8,
 		"thrustAmplitude": 40,
-		"rangedDamage": 100,
-		"projectileSpeed": 4000,
+		"rangedDamage": 120,
+		"projectileSpeed": 6000,
 		"projectileLife": 3,
 		"rangeRadius": 1000.0,
-		"rateOfFire": 20,
+		"rateOfFire": 10,
 		"isMelee": false,
 		"isRanged": true,
 		"skills": ["Skirmish", "Gun"],
@@ -188,15 +188,15 @@ var unitDict = {
 	},
 	"Imperial Lancer": {
 		"cost": 38,
-		"maxHp": 130,
+		"maxHp": 110,
 		"maxMorale": 65,
 		"unitName": "Imperial Lancer",
-		"maxSpeed": 480,
+		"maxSpeed": 450,
 		"size": 1.1,
 		"icon": preload("res://Assets/imperialLancerIcon.png"),
 		"sprite": preload("res://Assets/imperialLancer.png"),
-		"damage": 40,
-		"attackSpeed": 5,
+		"damage": 20,
+		"attackSpeed": 1,
 		"meleeWeaponReach": 2.5,
 		"thrustAmplitude": 80,
 		"rangedDamage": 0,
@@ -224,10 +224,10 @@ var unitDict = {
 		"meleeWeaponReach": 1.1,
 		"thrustAmplitude": 65,
 		"rangedDamage": 40,
-		"projectileSpeed": 1400,
+		"projectileSpeed": 2400,
 		"projectileLife": 3,
 		"rangeRadius": 300.0,
-		"rateOfFire": 1.5,
+		"rateOfFire": 2,
 		"isMelee": false,
 		"isRanged": true,
 		"skills": ["Skirmish", "Gun"],
@@ -247,11 +247,11 @@ var unitDict = {
 		"attackSpeed": 15000,
 		"meleeWeaponReach": 0.5,
 		"thrustAmplitude": 20,
-		"rangedDamage": 80,
-		"projectileSpeed": 6800,
+		"rangedDamage": 300,
+		"projectileSpeed": 4000,
 		"projectileLife": 5,
-		"rangeRadius": 1500.0,
-		"rateOfFire": 15,
+		"rangeRadius": 2500.0,
+		"rateOfFire": 4,
 		"isMelee": false,
 		"isRanged": true,
 		"skills": ["Fireball", "Cannon"],
@@ -407,8 +407,8 @@ var unitDict = {
 func _ready() -> void:
 	
 	while true:
-		enemyMana += 1
-		mana += 1
+		enemyMana += 5
+		mana += 5
 		await get_tree().create_timer(0.1).timeout
 		
 func _process(delta: float) -> void:
