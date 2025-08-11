@@ -3,9 +3,9 @@ extends Node
 var currentUnit = "Imperial Swordsman"
 var currentEnemyUnit = "Imperial Swordsman"
 var mana = 50
-var maxMana = 1000
+var maxMana = 300
 var enemyMana = 50
-var enemyMaxMana = 1000
+var enemyMaxMana = 300
 var onUI = false
 
 var minutes = 2
@@ -13,8 +13,8 @@ var seconds = 59
 var generalHealth = 2000
 var enemyGeneralHealth = 2000
 var descOpen = false
-var unitList = ["Imperial Officer","Imperial Swordsman", "Imperial Musketeer", "Imperial Sergeant", "Imperial Rifleman", "Imperial Sapper","Imperial Hussar", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
-var enemyUnitList = ["Goblin","Spear Goblin", "Dart Goblin", "Orc", "Hobgoblin", "Ogre","Goblin","Spear Goblin", "Dart Goblin", "Orc"]
+var unitList = ["Imperial Officer","Imperial Swordsman", "Imperial Musketeer", "Imperial Sergeant", "Ludwig", "Barbados","Imperial Hussar", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
+var enemyUnitList = ["Goblin","Spear Goblin", "Dart Goblin", "Orc", "Hobgoblin", "Ogre","Goblin","Spear Goblin", "Stone Giant", "Orc"]
 var gamemode = "Clash"
 
 var unitDict = {
@@ -39,7 +39,7 @@ var unitDict = {
 		"isMelee": true,
 		"isRanged": false,
 		"skills": [],
-		"conditions": [],
+		
 		"desc": "A Imperial army private, straight from boot camp. He is cheap, fast, and wields an infantry sword."
 	},
 	"Imperial Musketeer": {
@@ -63,7 +63,7 @@ var unitDict = {
 		"isMelee": false,
 		"isRanged": true,
 		"skills": ["Skirmish","Gun"],
-		"conditions": [],
+		
 		"desc": "An imperial soldier with a powerful musket that can pierce shields. However, it takes a long time to reload."
 	},
 	"Imperial Sergeant": {
@@ -87,7 +87,7 @@ var unitDict = {
 		"isMelee": true,
 		"isRanged": true,
 		"skills": ["Morale Aura", "Thrust","Gun"],
-		"conditions": [],
+		
 		"desc": "An experienced soldier with a musket, bayonet, and an inflated ego. He gives morale to units beside him."
 	},
 	"Imperial Officer": {
@@ -111,7 +111,7 @@ var unitDict = {
 		"isMelee": true,
 		"isRanged": true,
 		"skills": ["Morale Aura", "Gun"],
-		"conditions": [],
+		
 		"desc": "A high-ranking imperial commander who inspires nearby troops with his presence. He wields both a ceremonial sword and a refined pistol."
 	},
 	"Imperial Rifleman": {
@@ -135,7 +135,7 @@ var unitDict = {
 		"isMelee": false,
 		"isRanged": true,
 		"skills": ["Skirmish", "Gun"],
-		"conditions": [],
+		
 		"desc": "An elite marksman equipped with a precision rifle for long-range engagements. His shots are deadly accurate but require careful positioning."
 	},
 	"Imperial Sapper": {
@@ -159,7 +159,7 @@ var unitDict = {
 		"isMelee": true,
 		"isRanged": true,
 		"skills": ["Fireball"],
-		"conditions": [],
+		
 		"desc": "A demolitions expert who uses grenades and a big axe to destroy structures. His grenades can devastate clustered enemies but have limited range."
 	},
 	"Imperial Hussar": {
@@ -167,7 +167,7 @@ var unitDict = {
 		"maxHp": 110,
 		"maxMorale": 60,
 		"unitName": "Imperial Hussar",
-		"maxSpeed": 500,
+		"maxSpeed": 550,
 		"size": 1.1,
 		"icon": preload("res://Assets/imperialHussarIcon.png"),
 		"sprite": preload("res://Assets/imperialHussar.png"),
@@ -183,7 +183,7 @@ var unitDict = {
 		"isMelee": true,
 		"isRanged": false,
 		"skills": [],
-		"conditions": [],
+		
 		"desc": "A fast-moving rider armed with a cavalry saber. He excels at harassment and can be summoned on the flanks."
 	},
 	"Imperial Lancer": {
@@ -191,7 +191,7 @@ var unitDict = {
 		"maxHp": 110,
 		"maxMorale": 65,
 		"unitName": "Imperial Lancer",
-		"maxSpeed": 450,
+		"maxSpeed": 510,
 		"size": 1.1,
 		"icon": preload("res://Assets/imperialLancerIcon.png"),
 		"sprite": preload("res://Assets/imperialLancer.png"),
@@ -207,7 +207,7 @@ var unitDict = {
 		"isMelee": true,
 		"isRanged": false,
 		"skills": ["Thrust", "Charge"],
-		"conditions": [],
+		
 		"desc": "A heavy cavalry soldier wielding a long lance for devastating charges. His momentum can pierce through multiple enemies in a single attack."
 	},
 	"Imperial Dragoon": {
@@ -215,7 +215,7 @@ var unitDict = {
 		"maxHp": 125,
 		"maxMorale": 70,
 		"unitName": "Imperial Dragoon",
-		"maxSpeed": 400,
+		"maxSpeed": 520,
 		"size": 1.1,
 		"icon": preload("res://Assets/imperialDragoonIcon.png"),
 		"sprite": preload("res://Assets/imperialDragoon.png"),
@@ -231,7 +231,7 @@ var unitDict = {
 		"isMelee": false,
 		"isRanged": true,
 		"skills": ["Skirmish", "Gun"],
-		"conditions": [],
+		
 		"desc": "An elite mounted soldier who uses a cavalry carbine. He is very good at skirmishing."
 	},
 	"Imperial Cannon": {
@@ -248,14 +248,14 @@ var unitDict = {
 		"meleeWeaponReach": 0.5,
 		"thrustAmplitude": 20,
 		"rangedDamage": 300,
-		"projectileSpeed": 4000,
+		"projectileSpeed": 2500,
 		"projectileLife": 5,
 		"rangeRadius": 2500.0,
 		"rateOfFire": 4,
 		"isMelee": false,
 		"isRanged": true,
 		"skills": ["Fireball", "Cannon"],
-		"conditions": [],
+		
 		"desc": "A massive artillery piece that can devastate enemy formations from extreme range. It requires time to reload but delivers crushing explosive damage."
 	},
 	"Goblin": {
@@ -274,12 +274,12 @@ var unitDict = {
 		"rangedDamage": 20,
 		"projectileSpeed": 1000,
 		"projectileLife": 2,
-		"rangeRadius": 500.0,
+		"rangeRadius": 600.0,
 		"rateOfFire": 0.5,
 		"isMelee": true,
 		"isRanged": false,
 		"skills": ["Thrust"],
-		"conditions": [],
+		
 		"desc": "A small green monster who works for the necromancer as a slave-soldier. He is fast, but weak and cowardly."
 	},
 	"Spear Goblin": {
@@ -296,14 +296,14 @@ var unitDict = {
 		"meleeWeaponReach": 0.8,
 		"thrustAmplitude": 25,
 		"rangedDamage": 20,
-		"projectileSpeed": 400,
+		"projectileSpeed": 800,
 		"projectileLife": 1,
-		"rangeRadius": 300.0,
-		"rateOfFire": 1,
+		"rangeRadius": 500.0,
+		"rateOfFire": 1.5,
 		"isMelee": true,
 		"isRanged": true,
 		"skills": ["Thrust"],
-		"conditions": [],
+		
 		"desc": "A goblin with throwing spears. He throws them, and uses them in melee."
 	},
 	"Dart Goblin": {
@@ -322,12 +322,11 @@ var unitDict = {
 		"rangedDamage": 10,
 		"projectileSpeed": 600,
 		"projectileLife": 1,
-		"rangeRadius": 200.0,
-		"rateOfFire": 0.5,
+		"rangeRadius": 600.0,
+		"rateOfFire": 1,
 		"isMelee": false,
 		"isRanged": true,
-		"skills": [],
-		"conditions": ["Skirmish"],
+		"skills": ["Skirmish"],
 		"desc": "A goblin with a piece of bamboo in his long nose. He blows out poisonous darts."
 	},
 	"Orc": {
@@ -351,7 +350,6 @@ var unitDict = {
 		"isMelee": true,
 		"isRanged": false,
 		"skills": [],
-		"conditions": [],
 		"desc": "A big pig-faced brute who was hired by the necromancer. He is strong but slow."
 	},
 	"Hobgoblin": {
@@ -375,11 +373,10 @@ var unitDict = {
 		"isMelee": true,
 		"isRanged": false,
 		"skills": [],
-		"conditions": [],
 		"desc": "A goblin officer who is respected in the Goblin army. He wears heavy armor."
 	},
 	"Ogre": {
-		"cost": 45,
+		"cost": 60,
 		"maxHp": 250,
 		"maxMorale": 80,
 		"unitName": "Ogre",
@@ -387,7 +384,7 @@ var unitDict = {
 		"size": 1.5,
 		"icon": preload("res://Assets/imperialSwordsmanIcon.png"),
 		"sprite": preload("res://Assets/ogre.png"),
-		"damage": 50,
+		"damage": 80,
 		"attackSpeed": 110,
 		"meleeWeaponReach": 1,
 		"thrustAmplitude": 25,
@@ -399,16 +396,108 @@ var unitDict = {
 		"isMelee": true,
 		"isRanged": false,
 		"skills": [],
-		"conditions": [],
 		"desc": "A gigantic monster with a small head. He uses his club to take out swarms of enemies."
-	}
+	},
+	"Stone Giant": {
+		"cost": 90,
+		"maxHp": 200,
+		"maxMorale": 80,
+		"unitName": "Stone Giant",
+		"maxSpeed": 80,
+		"size": 1.6,
+		"icon": preload("res://Assets/imperialSwordsmanIcon.png"),
+		"sprite": preload("res://Assets/stoneGiant.png"),
+		"damage": 30,
+		"attackSpeed": 50,
+		"meleeWeaponReach": 1,
+		"thrustAmplitude": 25,
+		"rangedDamage": 100,
+		"projectileSpeed": 100,
+		"projectileLife": 1,
+		"rangeRadius": 500.0,
+		"rateOfFire": 2,
+		"isMelee": false,
+		"isRanged": true,
+		"skills": ["Stone"],
+		"desc": "A gray, stone wielding giant who is from the underground. The corrupted dwarves known as the Duergar worship these giants."
+	},
+	"Ludwig": {
+		"cost": 200,
+		"maxHp": 300,
+		"maxMorale": 150,
+		"unitName": "Ludwig",
+		"maxSpeed": 300,
+		"size": 1.0,
+		"icon": preload("res://Assets/ludwigIcon.png"),
+		"sprite": preload("res://Assets/ludwig.png"),
+		"damage": 15,
+		"attackSpeed": 200,
+		"meleeWeaponReach": 1,
+		"thrustAmplitude": 40,
+		"rangedDamage": 120,
+		"projectileSpeed": 3500,
+		"projectileLife": 3,
+		"rangeRadius": 800.0,
+		"rateOfFire": 3,
+		"isMelee": true,
+		"isRanged": true,
+		"skills": ["Skirmish", "Gun", "Flashbang"],
+		"desc": "A mysterious arcane sniper who works as a monster hunter. He uses a magic musket and flashbangs that stun enemies"
+	},
+	"Barbados": {
+		"cost": 250,
+		"maxHp": 500,
+		"maxMorale": 200,
+		"unitName": "Barbados",
+		"maxSpeed": 330,
+		"size": 1.1,
+		"icon": preload("res://Assets/imperialSwordsmanIcon.png"),
+		"sprite": preload("res://Assets/imperialSwordsman (2).png"),
+		"damage": 60,
+		"attackSpeed": 250,
+		"meleeWeaponReach": 1.2,
+		"thrustAmplitude": 50,
+		"rangedDamage": 20,
+		"projectileSpeed": 1000,
+		"projectileLife": 2,
+		"rangeRadius": 500.0,
+		"rateOfFire": 0.5,
+		"isMelee": true,
+		"isRanged": false,
+		"skills": ["Werewolf"],
+		"desc": "A powerful swordsman with otherworldly armor. When he runs out of HP, he activates his alpha werewolf form."
+	},
+	"Alpha Barbados": {
+		"cost": 10,
+		"maxHp": 1000,
+		"maxMorale": 350,
+		"unitName": "Alpha Barbados",
+		"maxSpeed": 540,
+		"size": 1.5,
+		"icon": preload("res://Assets/imperialSwordsmanIcon.png"),
+		"sprite": preload("res://Assets/imperialSwordsman (2).png"),
+		"damage": 20,
+		"attackSpeed": 5500,
+		"meleeWeaponReach": 1.4,
+		"thrustAmplitude": 50,
+		"rangedDamage": 20,
+		"projectileSpeed": 1000,
+		"projectileLife": 2,
+		"rangeRadius": 500.0,
+		"rateOfFire": 0.5,
+		"isMelee": true,
+		"isRanged": false,
+		"skills": [],
+		
+		"desc": "A Imperial army private, straight from boot camp. He is cheap, fast, and wields an infantry sword."
+	},
 }
 
 func _ready() -> void:
 	
 	while true:
-		enemyMana += 5
-		mana += 5
+		enemyMana += 2
+		mana += 2
 		await get_tree().create_timer(0.1).timeout
 		
 func _process(delta: float) -> void:

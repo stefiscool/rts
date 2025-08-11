@@ -5,7 +5,7 @@ var canPlace = false
 @onready var unit = preload("res://Scenes/Units/infantry.tscn")
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	global_position = get_global_mouse_position()
 	if Input.is_action_just_pressed("click") and canPlace and (Global.mana >= Global.unitDict[Global.currentUnit]["cost"]):
 		$"place unit".play()
@@ -31,7 +31,6 @@ func _process(delta: float) -> void:
 		unitInstance.isMelee = Global.unitDict[Global.currentUnit]["isMelee"]
 		unitInstance.isRanged = Global.unitDict[Global.currentUnit]["isRanged"]
 		unitInstance.skills = Global.unitDict[Global.currentUnit]["skills"]
-		unitInstance.conditions = Global.unitDict[Global.currentUnit]["conditions"]
 		get_tree().get_root().add_child(unitInstance)
 		Global.mana -= Global.unitDict[Global.currentUnit]["cost"]
 	elif Input.is_action_just_pressed("click") and Global.onUI == false:
@@ -43,7 +42,7 @@ func _on_area_entered(area: Area2D) -> void:
 
 func _on_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Territory"):
-		canPlace = false
+		canPlace = true
 
 		
 func _on_body_entered(body: Node2D) -> void:

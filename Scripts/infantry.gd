@@ -36,6 +36,7 @@ var currentState = State.ATTACK
 @onready var corpse = preload("res://Scenes/corpse.tscn")
 @onready var musketSmoke = preload("res://Scenes/musket_particles.tscn")
 @onready var range_area = $Range
+@onready var unit = preload("res://Scenes/Units/infantry.tscn")
 
 var hp
 var speed
@@ -116,6 +117,11 @@ func _physics_process(delta: float) -> void:
 				move_and_slide()
 
 func _process(delta: float) -> void:
+	if conditions.has("Stun"):
+		speed = 0
+		await get_tree().create_timer(3).timeout
+		speed = maxSpeed
+		conditions.erase("Stun")
 	if isMelee and !skills.has("Thrust"):
 		$HitBox.rotation_degrees += attackSpeed * delta
 	if isMelee and skills.has("Thrust"):
@@ -135,6 +141,32 @@ func _process(delta: float) -> void:
 	elif skirmishing == false:
 		currentState = State.ATTACK
 	if hp <= 0:
+		var turnedIntoWolf = false
+		if skills.has("Werewolf") and turnedIntoWolf == false:
+			var unitInstance = unit.instantiate()
+			unitInstance.position = get_global_position()
+			unitInstance.cost = Global.unitDict["Alpha Barbados"]["cost"]
+			unitInstance.maxHp = Global.unitDict["Alpha Barbados"]["maxHp"]
+			unitInstance.maxMorale = Global.unitDict["Alpha Barbados"]["maxMorale"]
+			unitInstance.unitName = Global.unitDict["Alpha Barbados"]["unitName"]
+			unitInstance.maxSpeed = Global.unitDict["Alpha Barbados"]["maxSpeed"]
+			unitInstance.size = Global.unitDict["Alpha Barbados"]["size"]
+			unitInstance.sprite = Global.unitDict["Alpha Barbados"]["sprite"]
+			unitInstance.icon = Global.unitDict["Alpha Barbados"]["icon"]
+			unitInstance.damage = Global.unitDict["Alpha Barbados"]["damage"]
+			unitInstance.attackSpeed = Global.unitDict["Alpha Barbados"]["attackSpeed"]
+			unitInstance.meleeWeaponReach = Global.unitDict["Alpha Barbados"]["meleeWeaponReach"]
+			unitInstance.thrustAmplitude = Global.unitDict["Alpha Barbados"]["thrustAmplitude"]
+			unitInstance.rangedDamage = Global.unitDict["Alpha Barbados"]["rangedDamage"]
+			unitInstance.projectileSpeed = Global.unitDict["Alpha Barbados"]["projectileSpeed"]
+			unitInstance.projectileLife = Global.unitDict["Alpha Barbados"]["projectileLife"]
+			unitInstance.rangeRadius = Global.unitDict["Alpha Barbados"]["rangeRadius"]
+			unitInstance.rateOfFire = Global.unitDict["Alpha Barbados"]["rateOfFire"]
+			unitInstance.isMelee = Global.unitDict["Alpha Barbados"]["isMelee"]
+			unitInstance.isRanged = Global.unitDict["Alpha Barbados"]["isRanged"]
+			unitInstance.skills = Global.unitDict["Alpha Barbados"]["skills"]
+			get_tree().get_root().add_child(unitInstance)
+			turnedIntoWolf = true
 		var corpseInstance = corpse.instantiate()
 		get_tree().get_root().add_child(corpseInstance)
 		corpseInstance.position = global_position
@@ -170,6 +202,10 @@ func _process(delta: float) -> void:
 		projectileInstance.damage = rangedDamage
 		if skills.has("Fireball"):
 			projectileInstance.skills.append("Fireball")
+		if skills.has("Stone"):
+			projectileInstance.skills.append("Stone")
+		if skills.has("Flashbang"):
+			projectileInstance.skills.append("Flashbang")
 		if skills.has("Gun"):
 			var musketSmokeInstance = musketSmoke.instantiate()
 			get_tree().get_root().add_child(musketSmokeInstance)

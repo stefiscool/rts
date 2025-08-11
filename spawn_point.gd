@@ -12,7 +12,7 @@ func _ready() -> void:
 			canPlace = true
 		await get_tree().create_timer(randf_range(0.1,5.0)).timeout
 		
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if canPlace:
 		var unitInstance = unit.instantiate()
 		unitInstance.position = get_global_position()
@@ -36,7 +36,6 @@ func _process(delta: float) -> void:
 		unitInstance.isMelee = Global.unitDict[Global.currentEnemyUnit]["isMelee"]
 		unitInstance.isRanged = Global.unitDict[Global.currentEnemyUnit]["isRanged"]
 		unitInstance.skills = Global.unitDict[Global.currentEnemyUnit]["skills"]
-		unitInstance.conditions = Global.unitDict[Global.currentEnemyUnit]["conditions"]
 		unitInstance.isEnemy = true
 		get_tree().get_root().add_child(unitInstance)
 		canPlace = false
