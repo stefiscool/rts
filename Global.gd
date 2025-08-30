@@ -13,7 +13,7 @@ var seconds = 59
 var generalHealth = 2000
 var enemyGeneralHealth = 2000
 var descOpen = false
-var unitList = ["Imperial Officer","Imperial Swordsman", "Imperial Musketeer", "Imperial Sergeant", "Ludwig", "Barbados","Imperial Hussar", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
+var unitList = ["Imperial Officer","Imperial Swordsman", "Imperial Musketeer", "Imperial Sergeant", "Ludwig", "Barbados","Blorzik", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
 var enemyUnitList = ["Goblin","Spear Goblin", "Dart Goblin", "Orc", "Hobgoblin", "Ogre","Goblin","Spear Goblin", "Stone Giant", "Orc"]
 var gamemode = "Clash"
 
@@ -86,9 +86,9 @@ var unitDict = {
 		"rateOfFire": 10,
 		"isMelee": true,
 		"isRanged": true,
-		"skills": ["Morale Aura", "Thrust","Gun"],
+		"skills": ["Thrust","Gun"],
 		
-		"desc": "An experienced soldier with a musket, bayonet, and an inflated ego. He gives morale to units beside him."
+		"desc": "An experienced soldier with a musket, bayonet, and an inflated ego. He can shoot while advancing."
 	},
 	"Imperial Officer": {
 		"cost": 35,
@@ -372,7 +372,7 @@ var unitDict = {
 		"rateOfFire": 0.5,
 		"isMelee": true,
 		"isRanged": false,
-		"skills": [],
+		"skills": ["Morale Aura"],
 		"desc": "A goblin officer who is respected in the Goblin army. He wears heavy armor."
 	},
 	"Ogre": {
@@ -451,8 +451,8 @@ var unitDict = {
 		"unitName": "Barbados",
 		"maxSpeed": 330,
 		"size": 1.1,
-		"icon": preload("res://Assets/imperialSwordsmanIcon.png"),
-		"sprite": preload("res://Assets/imperialSwordsman (2).png"),
+		"icon": preload("res://Assets/barbadosIcon.png"),
+		"sprite": preload("res://Assets/barbados.png"),
 		"damage": 60,
 		"attackSpeed": 250,
 		"meleeWeaponReach": 1.2,
@@ -475,7 +475,7 @@ var unitDict = {
 		"maxSpeed": 540,
 		"size": 1.5,
 		"icon": preload("res://Assets/imperialSwordsmanIcon.png"),
-		"sprite": preload("res://Assets/imperialSwordsman (2).png"),
+		"sprite": preload("res://Assets/werewolf.png"),
 		"damage": 20,
 		"attackSpeed": 5500,
 		"meleeWeaponReach": 1.4,
@@ -488,9 +488,31 @@ var unitDict = {
 		"isMelee": true,
 		"isRanged": false,
 		"skills": [],
-		
-		"desc": "A Imperial army private, straight from boot camp. He is cheap, fast, and wields an infantry sword."
+		"desc": "IMA RIP AND TEAR."
 	},
+	"Blorzik": {
+		"cost": 180,
+		"maxHp": 500,
+		"maxMorale": 220,
+		"unitName": "Blorzik",
+		"maxSpeed": 600,
+		"size": 0.8,
+		"icon": preload("res://Assets/blorzikIcon.png"),
+		"sprite": preload("res://Assets/blorzik.png"),
+		"damage": 15,
+		"attackSpeed": 5000,
+		"meleeWeaponReach": 0.8,
+		"thrustAmplitude": 25,
+		"rangedDamage": 20,
+		"projectileSpeed": 1000,
+		"projectileLife": 2,
+		"rangeRadius": 600.0,
+		"rateOfFire": 0.5,
+		"isMelee": true,
+		"isRanged": false,
+		"skills": ["Thrust", "Fear Aura"],
+		"desc": "An insane gnome who has a lust for blood. He brings fear to his enemies."
+	}
 }
 
 func _ready() -> void:

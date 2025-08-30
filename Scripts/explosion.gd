@@ -8,6 +8,7 @@ var skills = []
 func _ready() -> void:
 	await get_tree().create_timer(0.1).timeout
 	if skills.has("Flashbang"):
+		add_to_group("Flashbang")
 		$Polygon2D.color = Color(255,255,0)
 	await get_tree().create_timer(explosionTime).timeout
 	queue_free()

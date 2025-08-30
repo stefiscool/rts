@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://n866p3epmiax"]
+[gd_scene load_steps=40 format=3 uid="uid://n866p3epmiax"]
 
 [ext_resource type="Script" uid="uid://dfdi6xwgiuspq" path="res://Scripts/infantry.gd" id="1_axss7"]
 [ext_resource type="Script" uid="uid://051t0eyuudss" path="res://Scripts/unit_label.gd" id="2_46pyy"]
@@ -29,6 +29,11 @@
 [ext_resource type="AudioStream" uid="uid://2i244l7kg4hp" path="res://Audio/new audio/swing-whoosh-weapon-4-189820.mp3" id="27_pmrmu"]
 [ext_resource type="AudioStream" uid="uid://dypbrxkscucaq" path="res://Audio/new audio/swing-whoosh-weapon-3-189823.mp3" id="28_cc0cs"]
 [ext_resource type="AudioStream" uid="uid://dhwg5cl414irx" path="res://Audio/new audio/swing-whoosh-weapon-2-189822.mp3" id="29_1khhm"]
+[ext_resource type="AudioStream" uid="uid://03uyjlth33uo" path="res://Audio/voicelines/Untitled video - Made with Clipchamp (3).mp3" id="30_fnrf3"]
+[ext_resource type="AudioStream" uid="uid://de47o5w306gev" path="res://Audio/voicelines/Untitled video - Made with Clipchamp (2).mp3" id="31_6ud4c"]
+[ext_resource type="AudioStream" uid="uid://dk8bks8yx1ui7" path="res://Audio/voicelines/barbados1.mp3" id="31_l0e8h"]
+[ext_resource type="AudioStream" uid="uid://bx2lnsc8883rp" path="res://Audio/voicelines/barbados2.mp3" id="32_6ud4c"]
+[ext_resource type="AudioStream" uid="uid://rmmx48vmxitt" path="res://Audio/flashbang-sound-effect.mp3" id="32_enyns"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ynpd5"]
 radius = 18.0069
@@ -183,6 +188,29 @@ stream = ExtResource("14_bkhit")
 stream = SubResource("AudioStreamRandomizer_3d2wm")
 volume_db = -17.96
 
+[node name="Ludwig" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("30_fnrf3")
+volume_db = 5.0
+
+[node name="Flashbang" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(10, 0)
+stream = ExtResource("31_6ud4c")
+volume_db = 5.0
+
+[node name="Flashbang2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(10, 0)
+stream = ExtResource("32_enyns")
+volume_db = 2.0
+
+[node name="Alpha Barbados" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("31_l0e8h")
+volume_db = 5.0
+
+[node name="Barbados" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("32_6ud4c")
+volume_db = 5.0
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]

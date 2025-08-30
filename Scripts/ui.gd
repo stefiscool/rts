@@ -7,3 +7,7 @@ func _process(_delta: float) -> void:
 		$ManaLabel.text = str(Global.mana) + " Mana"
 	$ColorRect6.scale.x = float(Global.mana)/float(Global.maxMana)
 	
+	for i in range(0, Global.unitList.size()):
+		if Input.is_action_just_pressed(str(i)):
+			Global.currentUnit = Global.unitList[i]
+			break

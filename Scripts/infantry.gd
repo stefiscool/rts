@@ -37,6 +37,7 @@ var currentState = State.ATTACK
 @onready var musketSmoke = preload("res://Scenes/musket_particles.tscn")
 @onready var range_area = $Range
 @onready var unit = preload("res://Scenes/Units/infantry.tscn")
+@onready var aura = preload("res://Scenes/aura.tscn")
 
 var hp
 var speed
@@ -52,6 +53,12 @@ var scaredPlayed = false
 
 
 func _ready() -> void:
+	if unitName == "Ludwig":
+		$Ludwig.play()
+	if unitName == "Barbados":
+		$Barbados.play()
+	if unitName == "Alpha Barbados":
+		$"Alpha Barbados".play()
 	scale = Vector2(size,size)
 	$HitBox/CollisionShape2D.scale.x = meleeWeaponReach
 	hp = maxHp
@@ -68,8 +75,13 @@ func _ready() -> void:
 		$UnitLabel.color = Color(0, 0, 1)
 		$UnitLabel/ColorRect/HPBar.color = Color(0, 0, 1)
 	$UnitSprite.texture = sprite
-		
-
+	var aura_skills = ["Morale Aura", "Fear Aura", "Heal Aura"]
+	for skill in aura_skills:
+		if skills.has(skill):
+			var auraInstance = aura.instantiate()
+			add_child(auraInstance)
+			auraInstance.skills.append(skill)
+			auraInstance.isEnemy = isEnemy
 func get_closest_enemy() -> Node2D:
 	var closest_enemy: Node2D = null
 	var closest_distance = INF
@@ -301,3 +313,9 @@ func update_range_radius(new_radius: float):
 			if child.shape is CircleShape2D:
 				child.shape.radius = rangeRadius
 			break
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	if unitName == "Ludwig" and area.is_in_group("Flashbang"):
+		$Flashbang.play()
+		$Flashbang2.play()
