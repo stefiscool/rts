@@ -14,6 +14,7 @@ func _ready() -> void:
 	if skills.has("Stone"):
 		scale.x += 10
 		scale.y += 10
+		$CollisionShape2D.scale = Vector2(1,1)
 		$Polygon2D.color = Color(50,50,50)
 	if skills.has("Flashbang") and randi_range(1,3) == 3:
 		var explosionInstance = explosion.instantiate()
