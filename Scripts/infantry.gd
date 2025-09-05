@@ -129,6 +129,11 @@ func _physics_process(delta: float) -> void:
 				move_and_slide()
 
 func _process(delta: float) -> void:
+	if skills.has("General"):
+		if isEnemy:
+			Global.enemyGeneralHealth = hp
+		else:
+			Global.generalHealth = hp
 	if conditions.has("Stun"):
 		speed = 0
 		await get_tree().create_timer(3).timeout

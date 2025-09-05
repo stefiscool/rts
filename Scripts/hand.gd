@@ -4,8 +4,23 @@ var canPlace = false
 
 @onready var unit = preload("res://Scenes/Units/infantry.tscn")
 
+#func check_if_in_territory() -> bool:
+	#if not self is Area2D:
+		#print("false")
+		#return false
+		#
+	#var overlapping_areas = get_overlapping_areas()
+	#for area in overlapping_areas:
+		#if area.is_in_group("Territory"):
+			#return true
+	#return false
+#
+## Call this when you need to update canPlace
+#func update_can_place():
+	#canPlace = check_if_in_territory()
 
 func _process(_delta: float) -> void:
+	update_can_place()
 	global_position = get_global_mouse_position()
 	if Input.is_action_just_pressed("click") and canPlace and (Global.mana >= Global.unitDict[Global.currentUnit]["cost"]):
 		$"place unit".play()
@@ -36,19 +51,39 @@ func _process(_delta: float) -> void:
 	elif Input.is_action_just_pressed("click") and Global.onUI == false:
 		$"not enough mana".play()
 	
-func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Territory"):
-		canPlace = true
-
-func _on_area_exited(area: Area2D) -> void:
-	if area.is_in_group("Territory"):
-		canPlace = true
+#func _on_area_entered(area: Area2D) -> void:
+	#if area.is_in_group("Territory"):
+		#canPlace = true
+#
+#func _on_area_exited(area: Area2D) -> void:
+	#if area.is_in_group("Territory"):
+		#canPlace = false
 
 		
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Ally") or body.is_in_group("Enemy"):
 		canPlace = false
-	
+
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Ally") or body.is_in_group("Enemy"):
-		canPlace = true
+		update_can_place()
+
+func check_if_in_territory() -> bool:
+	if not self is Area2D:
+		return false
+		
+	var overlapping_areas = get_overlapping_areas()
+	for area in overlapping_areas:
+		if area.is_in_group("Territory"):
+			return true
+	return false
+
+func has_overlapping_units() -> bool:
+	var overlapping_bodies = get_overlapping_bodies()
+	for body in overlapping_bodies:
+		if body.is_in_group("Ally") or body.is_in_group("Enemy"):
+			return true
+	return false
+
+func update_can_place():
+	canPlace = check_if_in_territory() and not has_overlapping_units()

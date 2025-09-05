@@ -7,10 +7,29 @@
 custom_minimum_size = Vector2(100, 0)
 offset_right = 100.0
 offset_bottom = 114.0
+focus_mode = 0
 icon = ExtResource("1_x8wpb")
 icon_alignment = 1
 vertical_icon_alignment = 0
 script = ExtResource("2_vcyba")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -4.0
+offset_top = -6.0
+offset_right = 104.0
+offset_bottom = 119.0
+color = Color(1, 0.843137, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect2"]
+z_index = -1
+layout_mode = 0
+offset_left = 13.0
+offset_top = -26.0
+offset_right = 95.0
+offset_bottom = 2.0
+color = Color(1, 0.843137, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -25,6 +44,20 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 32.0
 offset_bottom = 18.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 21.0
+offset_bottom = 22.0
+color = Color(1, 0.843137, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 20.0
+offset_bottom = 21.0
 color = Color(0, 0, 0, 1)
 
 [node name="Button" type="Button" parent="."]

@@ -16,8 +16,10 @@ func _process(_delta: float) -> void:
 		time_stopped = !time_stopped
 	if time_stopped:
 		Engine.time_scale = 0.0
+		Global.paused = true
 	else:
 		Engine.time_scale = 1.0
+		Global.paused = false
    
    # Use get_process_delta_time() for camera controls when time is stopped
 	var camera_delta = 0.03

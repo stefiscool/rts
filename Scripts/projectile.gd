@@ -10,11 +10,11 @@ var skills = []
 func _ready() -> void:
 	await get_tree().create_timer(0.1).timeout
 	if skills.has("Fireball"):
-		scale.x += 2
-		scale.y += 2
+		$Polygon2D.color = Color(0,0,0)
 	if skills.has("Stone"):
 		scale.x += 10
 		scale.y += 10
+		$Polygon2D.color = Color(50,50,50)
 	if skills.has("Flashbang") and randi_range(1,3) == 3:
 		var explosionInstance = explosion.instantiate()
 		get_tree().get_root().add_child(explosionInstance)

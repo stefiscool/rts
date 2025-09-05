@@ -78,6 +78,13 @@ shape = SubResource("RectangleShape2D_hrau6")
 position = Vector2(633.983, 213.114)
 shape = SubResource("RectangleShape2D_sianv")
 
+[node name="ColorRect" type="ColorRect" parent="Territory"]
+offset_left = -2081.0
+offset_top = -94.0
+offset_right = 3365.0
+offset_bottom = 170.0
+color = Color(0, 0, 1, 0.266667)
+
 [node name="EnemyTerritory" type="Area2D" parent="." groups=["EnemyTerritory"]]
 position = Vector2(565, 632)
 

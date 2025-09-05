@@ -2,18 +2,20 @@ extends Node
 
 var currentUnit = "Imperial Swordsman"
 var currentEnemyUnit = "Imperial Swordsman"
+var currentDescUnit = "Imperial Swordsman"
 var mana = 50
 var maxMana = 300
 var enemyMana = 50
 var enemyMaxMana = 300
 var onUI = false
+var paused = false
 
 var minutes = 2
 var seconds = 59
 var generalHealth = 2000
 var enemyGeneralHealth = 2000
 var descOpen = false
-var unitList = ["Imperial Officer","Imperial Swordsman", "Imperial Musketeer", "Imperial Sergeant", "Ludwig", "Barbados","Blorzik", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
+var unitList = ["Imperial Officer","Imperial Swordsman", "Imperial Musketeer", "Imperial Sergeant", "Imperial Rifleman", "Ludwig","Imperial Hussar", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
 var enemyUnitList = ["Goblin","Spear Goblin", "Dart Goblin", "Orc", "Hobgoblin", "Ogre","Goblin","Spear Goblin", "Stone Giant", "Orc"]
 var gamemode = "Clash"
 
@@ -182,9 +184,9 @@ var unitDict = {
 		"rateOfFire": 4,
 		"isMelee": true,
 		"isRanged": false,
-		"skills": [],
+		"skills": ["Flank"],
 		
-		"desc": "A fast-moving rider armed with a cavalry saber. He excels at harassment and can be summoned on the flanks."
+		"desc": "A fast-moving rider armed with a cavalry saber. He excels at speed and can be summoned on the flanks."
 	},
 	"Imperial Lancer": {
 		"cost": 38,
@@ -250,13 +252,13 @@ var unitDict = {
 		"rangedDamage": 300,
 		"projectileSpeed": 2500,
 		"projectileLife": 5,
-		"rangeRadius": 2500.0,
+		"rangeRadius": 2100.0,
 		"rateOfFire": 4,
 		"isMelee": false,
 		"isRanged": true,
 		"skills": ["Fireball", "Cannon"],
 		
-		"desc": "A massive artillery piece that can devastate enemy formations from extreme range. It requires time to reload but delivers crushing explosive damage."
+		"desc": "A massive artillery piece that can devastate enemy formations from extreme range. It is very slow but delivers crushing explosive damage."
 	},
 	"Goblin": {
 		"cost": 5,
@@ -442,7 +444,7 @@ var unitDict = {
 		"isMelee": true,
 		"isRanged": true,
 		"skills": ["Skirmish", "Gun", "Flashbang"],
-		"desc": "A mysterious arcane sniper who works as a monster hunter. He uses a magic musket and flashbangs that stun enemies"
+		"desc": "A mysterious arcane sniper who used to be an imperial soldier and now works as a monster hunter. He uses a magic musket and flashbangs that stun enemies"
 	},
 	"Barbados": {
 		"cost": 250,
