@@ -52,6 +52,7 @@ var critical = false
 var scaredPlayed = false
 
 
+
 func _ready() -> void:
 	if unitName == "Ludwig":
 		$Ludwig.play()
@@ -191,8 +192,12 @@ func _process(delta: float) -> void:
 		queue_free()
 		if skills.has("General"):
 			if isEnemy:
+				delete_nodes_in_group("Enemy")
+				delete_nodes_in_group("Ally")
 				get_tree().change_scene_to_file("res://Scenes/victory.tscn")
 			else:
+				delete_nodes_in_group("Enemy")
+				delete_nodes_in_group("Ally")
 				get_tree().change_scene_to_file("res://Scenes/defeat.tscn")
 	if (float(hp) / float(maxHp)) <= .9 and damaged == false:
 		morale -= 10
@@ -324,3 +329,9 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	if unitName == "Ludwig" and area.is_in_group("Flashbang"):
 		$Flashbang.play()
 		$Flashbang2.play()
+
+func delete_nodes_in_group(group_name: String):
+	var nodes_to_delete = get_tree().get_nodes_in_group(group_name)
+	for node in nodes_to_delete:
+		node.queue_free()
+		
