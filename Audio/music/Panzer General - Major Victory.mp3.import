@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dm4yjs143djrq"
+path="res://.godot/imported/Panzer General - Major Victory.mp3-b8f00926f33b28bbb6201e5eea8b0d64.mp3str"
+
+[deps]
+
+source_file="res://Audio/music/Panzer General - Major Victory.mp3"
+dest_files=["res://.godot/imported/Panzer General - Major Victory.mp3-b8f00926f33b28bbb6201e5eea8b0d64.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

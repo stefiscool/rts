@@ -1,11 +1,17 @@
-[gd_scene load_steps=14 format=4 uid="uid://b7tu6r7p7gwkx"]
+[gd_scene load_steps=21 format=4 uid="uid://b7tu6r7p7gwkx"]
 
 [ext_resource type="Texture2D" uid="uid://kpgcwyp68cjv" path="res://Assets/betterTilemap.png" id="1_sianv"]
 [ext_resource type="PackedScene" uid="uid://bvulxg8ghp2a1" path="res://Scenes/hand.tscn" id="2_b2agj"]
 [ext_resource type="Script" uid="uid://4fkh0d6ol7ms" path="res://Scripts/camera.gd" id="3_74cxr"]
+[ext_resource type="AudioStream" uid="uid://qseuf8o8jihs" path="res://Audio/music/Panzer General - Battlefield.mp3" id="4_d1fs1"]
+[ext_resource type="AudioStream" uid="uid://cl4nqcu20p2r6" path="res://Audio/music/Jeff Van Dyck - War Of Kings.mp3" id="5_2rctt"]
 [ext_resource type="PackedScene" uid="uid://dl5mpff3p5f7v" path="res://Scenes/Units/general.tscn" id="5_sianv"]
 [ext_resource type="PackedScene" uid="uid://bcnqd82vnpqwn" path="res://Scenes/ui.tscn" id="5_yqkj2"]
 [ext_resource type="PackedScene" uid="uid://c3bu2b6hj7wgb" path="res://Scenes/spawn_point.tscn" id="6_sianv"]
+[ext_resource type="AudioStream" uid="uid://dur8um7yswniw" path="res://Audio/music/Medieval 2 _ Total War Soundtrack - Destiny.mp3" id="6_t6ih7"]
+[ext_resource type="AudioStream" uid="uid://chsucaosggy06" path="res://Audio/music/The Battle At Arcole (Napoleon Total War OST).mp3" id="7_02bi8"]
+[ext_resource type="AudioStream" uid="uid://chsw3bui8uq3k" path="res://Audio/music/war-battle-military-drums-318680.mp3" id="8_28kbu"]
+[ext_resource type="Script" uid="uid://bx0mxb64pl0gp" path="res://Scripts/music.gd" id="9_t6ih7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1fs1"]
 texture = ExtResource("1_sianv")
@@ -53,6 +59,14 @@ size = Vector2(5474.04, 12.2288)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1fs1"]
 size = Vector2(5445.04, 21)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_d1fs1"]
+streams_count = 5
+stream_0/stream = ExtResource("4_d1fs1")
+stream_1/stream = ExtResource("5_2rctt")
+stream_2/stream = ExtResource("6_t6ih7")
+stream_3/stream = ExtResource("7_02bi8")
+stream_4/stream = ExtResource("8_28kbu")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_larjp"]
 size = Vector2(159, 6655.75)
@@ -104,6 +118,12 @@ position = Vector2(718, 401)
 zoom = Vector2(0.8, 0.8)
 script = ExtResource("3_74cxr")
 min_zoom = 0.3
+
+[node name="Music" type="AudioStreamPlayer2D" parent="Camera"]
+stream = SubResource("AudioStreamRandomizer_d1fs1")
+volume_db = 5.0
+autoplay = true
+script = ExtResource("9_t6ih7")
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -269,3 +289,5 @@ position = Vector2(-865, -5221)
 
 [node name="SpawnPoint26" parent="." instance=ExtResource("6_sianv")]
 position = Vector2(-256, -5248)
+
+[connection signal="finished" from="Camera/Music" to="Camera/Music" method="_on_finished"]

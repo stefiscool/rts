@@ -11,3 +11,7 @@ func _on_quick_battle_pressed() -> void:
 	delete_nodes_in_group("Enemy")
 	delete_nodes_in_group("Ally")
 	get_tree().change_scene_to_file("res://Scenes/flat_battlefield.tscn")
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()

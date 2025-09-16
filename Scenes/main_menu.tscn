@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://76kulett73sf"]
+[gd_scene load_steps=9 format=4 uid="uid://76kulett73sf"]
 
 [ext_resource type="Texture2D" uid="uid://eqqb74cp2h78" path="res://Assets/superTilemap.png" id="1_28flt"]
 [ext_resource type="Script" uid="uid://cr2m0r37aogaf" path="res://Scripts/main_menu.gd" id="1_n45e2"]
 [ext_resource type="PackedScene" uid="uid://c3bu2b6hj7wgb" path="res://Scenes/spawn_point.tscn" id="2_48xlc"]
 [ext_resource type="FontFile" uid="uid://b0n30tbllls0u" path="res://Assets/AncientModernTales-a7Po.ttf" id="2_ce3w2"]
 [ext_resource type="PackedScene" uid="uid://n866p3epmiax" path="res://Scenes/Units/infantry.tscn" id="3_1ehe0"]
+[ext_resource type="AudioStream" uid="uid://cx43tw2p3hy6e" path="res://Audio/music/Panzer General - Title Screen.mp3" id="6_opfnp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_48xlc"]
 texture = ExtResource("1_28flt")
@@ -139,11 +140,13 @@ offset_right = 361.0
 offset_bottom = 65.0
 
 [node name="Load Game" type="Button" parent="ColorRect2/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Load Game"
 
 [node name="New Game" type="Button" parent="ColorRect2/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "New Game"
@@ -154,17 +157,19 @@ theme_override_font_sizes/font_size = 25
 text = "Quick Battle"
 
 [node name="Options" type="Button" parent="ColorRect2/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Options"
 
 [node name="Quit" type="Button" parent="ColorRect2/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Quit"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.6, 0.6)
+zoom = Vector2(0.8, 0.8)
 
 [node name="SpawnPoint" parent="." instance=ExtResource("2_48xlc")]
 position = Vector2(1127, -7)
@@ -192,4 +197,10 @@ damage = 10000
 attackSpeed = 10000
 isEnemy = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_opfnp")
+volume_db = 5.0
+autoplay = true
+
 [connection signal="pressed" from="ColorRect2/VBoxContainer/Quick Battle" to="." method="_on_quick_battle_pressed"]
+[connection signal="pressed" from="ColorRect2/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

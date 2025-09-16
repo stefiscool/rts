@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chsucaosggy06"
+path="res://.godot/imported/The Battle At Arcole (Napoleon Total War OST).mp3-484e5d8d35b042fe81034a45cd21a8d8.mp3str"
+
+[deps]
+
+source_file="res://Audio/music/The Battle At Arcole (Napoleon Total War OST).mp3"
+dest_files=["res://.godot/imported/The Battle At Arcole (Napoleon Total War OST).mp3-484e5d8d35b042fe81034a45cd21a8d8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c20jla3ppa3t0"
+path="res://.godot/imported/Panzer General - Allied Victory.mp3-3d3c56c37feaf43d642c2d02ab2666ce.mp3str"
+
+[deps]
+
+source_file="res://Audio/music/Panzer General - Allied Victory.mp3"
+dest_files=["res://.godot/imported/Panzer General - Allied Victory.mp3-3d3c56c37feaf43d642c2d02ab2666ce.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

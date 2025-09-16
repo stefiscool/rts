@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://n866p3epmiax"]
+[gd_scene load_steps=43 format=3 uid="uid://n866p3epmiax"]
 
 [ext_resource type="Script" uid="uid://dfdi6xwgiuspq" path="res://Scripts/infantry.gd" id="1_axss7"]
 [ext_resource type="Script" uid="uid://051t0eyuudss" path="res://Scripts/unit_label.gd" id="2_46pyy"]
@@ -10,8 +10,10 @@
 [ext_resource type="AudioStream" uid="uid://crg57oteokkg8" path="res://Audio/man-death-scream-186763.mp3" id="8_46urm"]
 [ext_resource type="AudioStream" uid="uid://cn848cjdltho4" path="res://Audio/male-scream-in-fear-123079.mp3" id="9_136cd"]
 [ext_resource type="AudioStream" uid="uid://cp8neeu26w7wb" path="res://Audio/male-death-scream-horror-352706.mp3" id="10_41y6o"]
+[ext_resource type="AudioStream" uid="uid://tcuqd0jar8lv" path="res://Audio/horse-neigh-261131.mp3" id="11_pmrmu"]
 [ext_resource type="AudioStream" uid="uid://cr4tvumnsaafi" path="res://Audio/shout-104972.mp3" id="11_xnawy"]
 [ext_resource type="AudioStream" uid="uid://cgsgfj4p6qwg1" path="res://Audio/scream-85294.mp3" id="12_46urm"]
+[ext_resource type="AudioStream" uid="uid://62rdiivwf8qv" path="res://Audio/gallop-98644.mp3" id="12_cc0cs"]
 [ext_resource type="AudioStream" uid="uid://b7tbkxmwdjsk8" path="res://Audio/new audio/epic-war-combat-scream-352707.mp3" id="13_7qmmn"]
 [ext_resource type="AudioStream" uid="uid://0gx7myp322ko" path="res://Audio/powerful-cannon-shot-352459.mp3" id="13_8tceu"]
 [ext_resource type="AudioStream" uid="uid://bg382b1ogw5mn" path="res://Audio/new audio/man-screaming-6958.mp3" id="14_7topc"]
@@ -23,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://d3nqc6k4klcge" path="res://Audio/sword-sound-260274.mp3" id="18_wwehk"]
 [ext_resource type="AudioStream" uid="uid://c82r7pecpibsp" path="res://Audio/new audio/sharp-blade-slice-3-185146.mp3" id="20_fnrf3"]
 [ext_resource type="AudioStream" uid="uid://2r8jb8o4a5qn" path="res://Audio/new audio/epee-342933.mp3" id="21_l0e8h"]
+[ext_resource type="AudioStream" uid="uid://dd51nacomoca" path="res://Audio/draw-sword1-44724.mp3" id="24_1khhm"]
 [ext_resource type="AudioStream" uid="uid://i3qm7nu7or4e" path="res://Audio/new audio/sword-slash-315218.mp3" id="24_6ud4c"]
 [ext_resource type="AudioStream" uid="uid://bwecqcqa68s31" path="res://Audio/new audio/sword-312216.mp3" id="25_enyns"]
 [ext_resource type="AudioStream" uid="uid://b0out04n708hd" path="res://Audio/new audio/swing-whoosh-weapon-5-189821.mp3" id="26_ph7o2"]
@@ -60,7 +63,7 @@ stream_3/stream = ExtResource("14_7topc")
 stream_4/stream = ExtResource("15_len2g")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3d2wm"]
-streams_count = 12
+streams_count = 13
 stream_0/stream = ExtResource("15_0fnl8")
 stream_1/stream = ExtResource("16_r0f05")
 stream_2/stream = ExtResource("17_7kmu1")
@@ -73,6 +76,7 @@ stream_8/stream = ExtResource("28_cc0cs")
 stream_9/stream = ExtResource("29_1khhm")
 stream_10/stream = ExtResource("20_fnrf3")
 stream_11/stream = ExtResource("21_l0e8h")
+stream_12/stream = ExtResource("24_1khhm")
 
 [node name="Infantry" type="CharacterBody2D"]
 script = ExtResource("1_axss7")
@@ -174,6 +178,12 @@ color = Color(0.244744, 0.771997, 0.999999, 1)
 
 [node name="Fear" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_lsbnq")
+
+[node name="HorseNeigh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_pmrmu")
+
+[node name="Gallop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_cc0cs")
 
 [node name="Charge" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_136cd")

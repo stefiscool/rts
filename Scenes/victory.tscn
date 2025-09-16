@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://6q2jd2hqxity"]
+[gd_scene load_steps=3 format=3 uid="uid://6q2jd2hqxity"]
+
+[ext_resource type="AudioStream" uid="uid://dm4yjs143djrq" path="res://Audio/music/Panzer General - Major Victory.mp3" id="1_1fp7o"]
+[ext_resource type="Script" uid="uid://cwhxt7fcao63n" path="res://Scripts/main_menu_button.gd" id="2_pyhgl"]
 
 [node name="victory" type="Node2D"]
 
@@ -18,3 +21,19 @@ theme_override_colors/font_color = Color(0.886683, 0.733929, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 250
 text = "Victory YAY"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_1fp7o")
+volume_db = 5.0
+autoplay = true
+
+[node name="MainMenuButton" type="Button" parent="."]
+offset_left = 424.0
+offset_top = 452.0
+offset_right = 773.0
+offset_bottom = 578.0
+theme_override_font_sizes/font_size = 40
+text = "Back to Main Menu"
+script = ExtResource("2_pyhgl")
+
+[connection signal="pressed" from="MainMenuButton" to="MainMenuButton" method="_on_pressed"]
