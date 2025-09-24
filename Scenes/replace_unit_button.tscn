@@ -46,4 +46,5 @@ theme_override_font_sizes/font_size = 30
 text = "200M"
 horizontal_alignment = 1
 
+[connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="pressed" from="Stats Button" to="." method="_on_stats_button_pressed"]

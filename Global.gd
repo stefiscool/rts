@@ -4,12 +4,14 @@ var currentUnit = "Imperial Swordsman"
 var currentEnemyUnit = "Imperial Swordsman"
 var currentDescUnit = "Imperial Swordsman"
 var currentDescUnit2 = "Barbados"
+var replacingUnit = ""
 var mana = 50
 var maxMana = 300
 var enemyMana = 50
 var enemyMaxMana = 300
 var onUI = false
 var paused = false
+var replacing = false
 
 var minutes = 2
 var seconds = 59
@@ -19,6 +21,7 @@ var descOpen = false
 var desc2Open = false
 var unitList = ["Imperial Officer","Imperial Swordsman", "Imperial Musketeer", "Imperial Sergeant", "Imperial Rifleman", "Ludwig","Imperial Hussar", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
 var enemyUnitList = ["Goblin","Spear Goblin", "Dart Goblin", "Orc", "Hobgoblin", "Ogre","Goblin","Spear Goblin", "Stone Giant", "Orc"]
+var inventory = ["Barbados","Blorzik","Imperial Sapper"]
 var gamemode = "Clash"
 
 var unitDict = {
@@ -515,7 +518,7 @@ var unitDict = {
 		"isMelee": true,
 		"isRanged": false,
 		"skills": ["Thrust", "Fear Aura"],
-		"desc": "An insane gnome who has a lust for blood. He brings fear to his enemies."
+		"desc": "An insane gnome who has a deep lust for blood. He murdered 3/4s of the population of his hometown, Gimmelstump. His aura causes morale loss amongst enemies."
 	}
 }
 

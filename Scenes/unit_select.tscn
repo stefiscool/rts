@@ -2,19 +2,42 @@
 
 [ext_resource type="Script" uid="uid://btts4c8wx0ixv" path="res://Scripts/unit_select.gd" id="1_ctw4s"]
 [ext_resource type="Script" uid="uid://blq20shvae4os" path="res://Scripts/your_unit_button.gd" id="1_uw10l"]
-[ext_resource type="PackedScene" uid="uid://cyp6w8gbuh4d1" path="res://Scenes/replace_unit_button.tscn" id="3_trtgx"]
+[ext_resource type="AudioStream" uid="uid://cw1awquf6t1nv" path="res://Audio/music/Panzer General - Cutscene.mp3" id="5_trtgx"]
 [ext_resource type="FontFile" uid="uid://b0n30tbllls0u" path="res://Assets/AncientModernTales-a7Po.ttf" id="6_3i76x"]
 [ext_resource type="Texture2D" uid="uid://brc06t4apjmxm" path="res://Assets/imperialMusketeerIcon.png" id="7_1bfga"]
 
 [node name="UnitSelect" type="Node2D"]
 script = ExtResource("1_ctw4s")
 
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 318.0
+offset_top = 8.0
+offset_right = 802.0
+offset_bottom = 88.0
+color = Color(0.25490198, 0.4117647, 0.88235295, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = 99.0
+offset_right = 569.0
+offset_bottom = 638.0
+color = Color(0.25490198, 0.4117647, 0.88235295, 1)
+
+[node name="EnterBattle" type="Button" parent="."]
+offset_left = 768.0
+offset_top = 314.0
+offset_right = 982.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 30
+text = "Enter Battle"
+
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = 578.0
 offset_top = 98.0
 offset_right = 1143.0
-offset_bottom = 618.0
-color = Color(0.3515629, 0.3515629, 0.35156286, 1)
+offset_bottom = 639.0
+color = Color(0.25490198, 0.4117647, 0.88235295, 1)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ColorRect"]
 layout_mode = 0
@@ -26,9 +49,6 @@ offset_bottom = 495.0
 [node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/ScrollContainer"]
 layout_mode = 2
 
-[node name="Replace Unit Button" parent="ColorRect/ScrollContainer/VBoxContainer2" instance=ExtResource("3_trtgx")]
-layout_mode = 2
-
 [node name="Label3" type="Label" parent="ColorRect"]
 layout_mode = 0
 offset_left = 45.0
@@ -38,6 +58,14 @@ offset_bottom = 71.28
 theme_override_font_sizes/font_size = 50
 text = "Replace with"
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 8.0
+offset_right = 556.0
+offset_bottom = 50.0
+text = "Cancel Replacement"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 130.0
@@ -762,6 +790,7 @@ text = "Click a unit to replace it"
 horizontal_alignment = 1
 
 [node name="Description" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -835,6 +864,7 @@ offset_bottom = 41.0
 text = "Exit"
 
 [node name="Description2" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -911,6 +941,13 @@ text = "Exit"
 position = Vector2(585, 317)
 zoom = Vector2(0.9, 0.9)
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_trtgx")
+volume_db = 2.019
+autoplay = true
+
+[connection signal="pressed" from="EnterBattle" to="." method="_on_enter_battle_pressed"]
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/YourUnitButton" to="VBoxContainer/YourUnitButton" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/YourUnitButton/StatsButton" to="VBoxContainer/YourUnitButton" method="_on_stats_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/YourUnitButton2" to="VBoxContainer/YourUnitButton2" method="_on_pressed"]

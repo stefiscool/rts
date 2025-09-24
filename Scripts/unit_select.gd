@@ -1,8 +1,15 @@
 extends Node2D
 
-var replacing = false
+@export var unitButton = preload("res://Scenes/replace_unit_button.tscn")
+func _ready() -> void:
+	for i in Global.inventory:
+		var unitInstance = unitButton.instantiate()
+		unitInstance.unitName = i
+		$ColorRect/ScrollContainer/VBoxContainer2.add_child(unitInstance)
+	
 
 func _process(_delta: float) -> void:
+	$ColorRect.visible = Global.replacing
 	$Description.visible = Global.descOpen
 	$Description/Panel/UnitName.text = Global.unitDict[Global.currentDescUnit]["unitName"]
 	$Description/Panel/Stats.text = "Health: " + str(Global.unitDict[Global.currentDescUnit]["maxHp"]) \
@@ -44,3 +51,11 @@ func _on_exit_pressed() -> void:
 
 func _on_exit_2_pressed() -> void:
 	Global.desc2Open = false
+
+
+func _on_button_pressed() -> void:
+	Global.replacing = false
+
+
+func _on_enter_battle_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/flat_battlefield.tscn")
