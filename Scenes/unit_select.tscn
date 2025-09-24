@@ -1,0 +1,935 @@
+[gd_scene load_steps=6 format=3 uid="uid://df8pupau3ndgh"]
+
+[ext_resource type="Script" uid="uid://btts4c8wx0ixv" path="res://Scripts/unit_select.gd" id="1_ctw4s"]
+[ext_resource type="Script" uid="uid://blq20shvae4os" path="res://Scripts/your_unit_button.gd" id="1_uw10l"]
+[ext_resource type="PackedScene" uid="uid://cyp6w8gbuh4d1" path="res://Scenes/replace_unit_button.tscn" id="3_trtgx"]
+[ext_resource type="FontFile" uid="uid://b0n30tbllls0u" path="res://Assets/AncientModernTales-a7Po.ttf" id="6_3i76x"]
+[ext_resource type="Texture2D" uid="uid://brc06t4apjmxm" path="res://Assets/imperialMusketeerIcon.png" id="7_1bfga"]
+
+[node name="UnitSelect" type="Node2D"]
+script = ExtResource("1_ctw4s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 578.0
+offset_top = 98.0
+offset_right = 1143.0
+offset_bottom = 618.0
+color = Color(0.3515629, 0.3515629, 0.35156286, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 65.0
+offset_right = 593.0
+offset_bottom = 495.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/ScrollContainer"]
+layout_mode = 2
+
+[node name="Replace Unit Button" parent="ColorRect/ScrollContainer/VBoxContainer2" instance=ExtResource("3_trtgx")]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 17.0
+offset_right = 494.0
+offset_bottom = 71.28
+theme_override_font_sizes/font_size = 50
+text = "Replace with"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 130.0
+offset_top = 166.0
+offset_right = 486.0
+offset_bottom = 594.0
+
+[node name="YourUnitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Unit 1"
+script = ExtResource("1_uw10l")
+number = 1
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = 2.0
+offset_right = -81.0
+offset_bottom = 35.0
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton/ColorRect2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 36.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 31.12
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/YourUnitButton"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 35.0
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton/ColorRect3"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 66.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton/ColorRect3/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 61.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "20M"
+horizontal_alignment = 1
+
+[node name="StatsButton" type="Button" parent="VBoxContainer/YourUnitButton"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 4.0
+offset_right = 419.0
+offset_bottom = 34.0
+text = "Stats"
+
+[node name="YourUnitButton2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Unit 1"
+script = ExtResource("1_uw10l")
+number = 2
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton2"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = 2.0
+offset_right = -81.0
+offset_bottom = 35.0
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton2/ColorRect2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 36.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton2/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 31.12
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/YourUnitButton2"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 35.0
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton2/ColorRect3"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 66.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton2/ColorRect3/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 61.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "20M"
+horizontal_alignment = 1
+
+[node name="StatsButton" type="Button" parent="VBoxContainer/YourUnitButton2"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 4.0
+offset_right = 419.0
+offset_bottom = 34.0
+text = "Stats"
+
+[node name="YourUnitButton3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Unit 1"
+script = ExtResource("1_uw10l")
+number = 3
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton3"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = 2.0
+offset_right = -81.0
+offset_bottom = 35.0
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton3/ColorRect2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 36.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton3/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 31.12
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/YourUnitButton3"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 35.0
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton3/ColorRect3"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 66.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton3/ColorRect3/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 61.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "20M"
+horizontal_alignment = 1
+
+[node name="StatsButton" type="Button" parent="VBoxContainer/YourUnitButton3"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 4.0
+offset_right = 419.0
+offset_bottom = 34.0
+text = "Stats"
+
+[node name="YourUnitButton4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Unit 1"
+script = ExtResource("1_uw10l")
+number = 4
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton4"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = 2.0
+offset_right = -81.0
+offset_bottom = 35.0
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton4/ColorRect2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 36.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton4/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 31.12
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/YourUnitButton4"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 35.0
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton4/ColorRect3"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 66.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton4/ColorRect3/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 61.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "20M"
+horizontal_alignment = 1
+
+[node name="StatsButton" type="Button" parent="VBoxContainer/YourUnitButton4"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 4.0
+offset_right = 419.0
+offset_bottom = 34.0
+text = "Stats"
+
+[node name="YourUnitButton5" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Unit 1"
+script = ExtResource("1_uw10l")
+number = 5
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton5"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = 2.0
+offset_right = -81.0
+offset_bottom = 35.0
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton5/ColorRect2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 36.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton5/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 31.12
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/YourUnitButton5"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 35.0
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton5/ColorRect3"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 66.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton5/ColorRect3/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 61.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "20M"
+horizontal_alignment = 1
+
+[node name="StatsButton" type="Button" parent="VBoxContainer/YourUnitButton5"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 4.0
+offset_right = 419.0
+offset_bottom = 34.0
+text = "Stats"
+
+[node name="YourUnitButton6" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Unit 1"
+script = ExtResource("1_uw10l")
+number = 6
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton6"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = 2.0
+offset_right = -81.0
+offset_bottom = 35.0
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton6/ColorRect2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 36.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton6/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 31.12
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/YourUnitButton6"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 35.0
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton6/ColorRect3"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 66.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton6/ColorRect3/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 61.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "20M"
+horizontal_alignment = 1
+
+[node name="StatsButton" type="Button" parent="VBoxContainer/YourUnitButton6"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 4.0
+offset_right = 419.0
+offset_bottom = 34.0
+text = "Stats"
+
+[node name="YourUnitButton7" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Unit 1"
+script = ExtResource("1_uw10l")
+number = 7
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton7"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = 2.0
+offset_right = -81.0
+offset_bottom = 35.0
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton7/ColorRect2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 36.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton7/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 31.12
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/YourUnitButton7"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 35.0
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton7/ColorRect3"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 66.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton7/ColorRect3/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 61.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "20M"
+horizontal_alignment = 1
+
+[node name="StatsButton" type="Button" parent="VBoxContainer/YourUnitButton7"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 4.0
+offset_right = 419.0
+offset_bottom = 34.0
+text = "Stats"
+
+[node name="YourUnitButton8" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Unit 1"
+script = ExtResource("1_uw10l")
+number = 8
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton8"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = 2.0
+offset_right = -81.0
+offset_bottom = 35.0
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton8/ColorRect2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 36.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton8/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 31.12
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/YourUnitButton8"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 35.0
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton8/ColorRect3"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 66.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton8/ColorRect3/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 61.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "20M"
+horizontal_alignment = 1
+
+[node name="StatsButton" type="Button" parent="VBoxContainer/YourUnitButton8"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 4.0
+offset_right = 419.0
+offset_bottom = 34.0
+text = "Stats"
+
+[node name="YourUnitButton9" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Unit 1"
+script = ExtResource("1_uw10l")
+number = 9
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton9"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = 2.0
+offset_right = -81.0
+offset_bottom = 35.0
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton9/ColorRect2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 36.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton9/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 31.12
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/YourUnitButton9"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 35.0
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton9/ColorRect3"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 66.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton9/ColorRect3/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 61.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "20M"
+horizontal_alignment = 1
+
+[node name="StatsButton" type="Button" parent="VBoxContainer/YourUnitButton9"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 4.0
+offset_right = 419.0
+offset_bottom = 34.0
+text = "Stats"
+
+[node name="YourUnitButton10" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Unit 1"
+script = ExtResource("1_uw10l")
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton10"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = 2.0
+offset_right = -81.0
+offset_bottom = 35.0
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton10/ColorRect2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 36.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton10/ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 31.12
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/YourUnitButton10"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 35.0
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/YourUnitButton10/ColorRect3"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 66.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/YourUnitButton10/ColorRect3/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 61.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "20M"
+horizontal_alignment = 1
+
+[node name="StatsButton" type="Button" parent="VBoxContainer/YourUnitButton10"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 4.0
+offset_right = 419.0
+offset_bottom = 34.0
+text = "Stats"
+
+[node name="Label" type="Label" parent="."]
+offset_top = 15.799999
+offset_right = 1142.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("6_3i76x")
+theme_override_font_sizes/font_size = 70
+text = "Unit Selection"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 72.0
+offset_top = 107.0
+offset_right = 521.0
+offset_bottom = 161.28
+theme_override_font_sizes/font_size = 50
+text = "Your Units"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 66.0
+offset_top = 600.0
+offset_right = 515.0
+offset_bottom = 654.28
+theme_override_font_sizes/font_size = 30
+text = "Click a unit to replace it"
+horizontal_alignment = 1
+
+[node name="Description" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 7.0
+offset_top = 164.0
+offset_right = 487.0
+offset_bottom = 597.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.254902, 0.411765, 0.882353, 1)
+
+[node name="Panel" type="Panel" parent="Description"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 475.0
+offset_bottom = 427.0
+
+[node name="UnitName" type="Label" parent="Description/Panel"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 441.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("6_3i76x")
+theme_override_font_sizes/font_size = 40
+text = "Unit Name"
+horizontal_alignment = 1
+
+[node name="Stats" type="Label" parent="Description/Panel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 59.0
+offset_right = 173.0
+offset_bottom = 309.88
+theme_override_font_sizes/font_size = 20
+text = "Health:
+Morale:
+Melee Damage:
+Melee Speed:
+Melee Reach:
+Speed:
+Range:
+Ranged Damage:
+Projectile Speed:
+Projectile Life:
+Rate of Fire:"
+
+[node name="Desc" type="Label" parent="Description/Panel"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 211.0
+offset_right = 461.0
+offset_bottom = 394.0
+theme_override_font_sizes/font_size = 20
+text = "Description:"
+autowrap_mode = 2
+
+[node name="Icon" type="Sprite2D" parent="Description/Panel"]
+position = Vector2(307.625, 134.87505)
+scale = Vector2(2.5117197, 2.3164053)
+texture = ExtResource("7_1bfga")
+
+[node name="Exit" type="Button" parent="Description/Panel"]
+layout_mode = 0
+offset_left = 407.0
+offset_top = 4.0
+offset_right = 465.0
+offset_bottom = 41.0
+text = "Exit"
+
+[node name="Description2" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 600.0
+offset_top = 164.0
+offset_right = 1080.0
+offset_bottom = 597.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.254902, 0.411765, 0.882353, 1)
+
+[node name="Panel" type="Panel" parent="Description2"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 475.0
+offset_bottom = 427.0
+
+[node name="UnitName" type="Label" parent="Description2/Panel"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 441.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("6_3i76x")
+theme_override_font_sizes/font_size = 40
+text = "Unit Name"
+horizontal_alignment = 1
+
+[node name="Stats" type="Label" parent="Description2/Panel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 59.0
+offset_right = 173.0
+offset_bottom = 309.88
+theme_override_font_sizes/font_size = 20
+text = "Health:
+Morale:
+Melee Damage:
+Melee Speed:
+Melee Reach:
+Speed:
+Range:
+Ranged Damage:
+Projectile Speed:
+Projectile Life:
+Rate of Fire:"
+
+[node name="Desc" type="Label" parent="Description2/Panel"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 211.0
+offset_right = 461.0
+offset_bottom = 394.0
+theme_override_font_sizes/font_size = 20
+text = "Description:"
+autowrap_mode = 2
+
+[node name="Icon" type="Sprite2D" parent="Description2/Panel"]
+position = Vector2(307.625, 134.87505)
+scale = Vector2(2.5117197, 2.3164053)
+texture = ExtResource("7_1bfga")
+
+[node name="Exit2" type="Button" parent="Description2/Panel"]
+layout_mode = 0
+offset_left = 407.0
+offset_top = 4.0
+offset_right = 465.0
+offset_bottom = 41.0
+text = "Exit"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(585, 317)
+zoom = Vector2(0.9, 0.9)
+
+[connection signal="pressed" from="VBoxContainer/YourUnitButton" to="VBoxContainer/YourUnitButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton/StatsButton" to="VBoxContainer/YourUnitButton" method="_on_stats_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton2" to="VBoxContainer/YourUnitButton2" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton2/StatsButton" to="VBoxContainer/YourUnitButton2" method="_on_stats_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton3" to="VBoxContainer/YourUnitButton3" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton3/StatsButton" to="VBoxContainer/YourUnitButton3" method="_on_stats_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton4" to="VBoxContainer/YourUnitButton4" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton4/StatsButton" to="VBoxContainer/YourUnitButton4" method="_on_stats_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton5" to="VBoxContainer/YourUnitButton5" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton5/StatsButton" to="VBoxContainer/YourUnitButton5" method="_on_stats_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton6" to="VBoxContainer/YourUnitButton6" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton6/StatsButton" to="VBoxContainer/YourUnitButton6" method="_on_stats_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton7" to="VBoxContainer/YourUnitButton7" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton7/StatsButton" to="VBoxContainer/YourUnitButton7" method="_on_stats_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton8" to="VBoxContainer/YourUnitButton8" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton8/StatsButton" to="VBoxContainer/YourUnitButton8" method="_on_stats_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton9" to="VBoxContainer/YourUnitButton9" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton9/StatsButton" to="VBoxContainer/YourUnitButton9" method="_on_stats_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton10" to="VBoxContainer/YourUnitButton10" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/YourUnitButton10/StatsButton" to="VBoxContainer/YourUnitButton10" method="_on_stats_button_pressed"]
+[connection signal="pressed" from="Description/Panel/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Description2/Panel/Exit2" to="." method="_on_exit_2_pressed"]

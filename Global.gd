@@ -3,6 +3,7 @@ extends Node
 var currentUnit = "Imperial Swordsman"
 var currentEnemyUnit = "Imperial Swordsman"
 var currentDescUnit = "Imperial Swordsman"
+var currentDescUnit2 = "Barbados"
 var mana = 50
 var maxMana = 300
 var enemyMana = 50
@@ -15,6 +16,7 @@ var seconds = 59
 var generalHealth = 2000
 var enemyGeneralHealth = 2000
 var descOpen = false
+var desc2Open = false
 var unitList = ["Imperial Officer","Imperial Swordsman", "Imperial Musketeer", "Imperial Sergeant", "Imperial Rifleman", "Ludwig","Imperial Hussar", "Imperial Lancer", "Imperial Dragoon","Imperial Cannon"]
 var enemyUnitList = ["Goblin","Spear Goblin", "Dart Goblin", "Orc", "Hobgoblin", "Ogre","Goblin","Spear Goblin", "Stone Giant", "Orc"]
 var gamemode = "Clash"

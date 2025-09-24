@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyp6w8gbuh4d1"]
+
+[ext_resource type="Texture2D" uid="uid://dri8bg4xk42ls" path="res://Assets/barbadosIcon.png" id="1_3xtsl"]
+[ext_resource type="Script" uid="uid://b2n2v6ix0qsqc" path="res://Scenes/replace_unit_button.gd" id="2_gcvyd"]
+
+[node name="Replace Unit Button" type="Button"]
+theme_override_font_sizes/font_size = 25
+text = "Barbados
+"
+icon = ExtResource("1_3xtsl")
+alignment = 0
+script = ExtResource("2_gcvyd")
+
+[node name="Stats Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 14.0
+offset_right = 422.0
+offset_bottom = 56.0
+text = "Stats"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 9.0
+offset_right = 365.0
+offset_bottom = 62.0
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 66.0
+offset_bottom = 49.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect/ColorRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 10.0
+offset_right = 61.0
+offset_bottom = 40.120003
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "200M"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Stats Button" to="." method="_on_stats_button_pressed"]
