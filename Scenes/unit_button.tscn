@@ -124,5 +124,90 @@ grow_vertical = 0
 text = "15M"
 horizontal_alignment = 1
 
+[node name="HeroLabel" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 28.0
+offset_top = 108.0
+offset_right = 74.0
+offset_bottom = 131.0
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="HeroLabel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 43.0
+offset_bottom = 21.0
+color = Color(0, 0, 0, 1)
+
+[node name="ManaLabel2" type="Label" parent="HeroLabel/ColorRect5"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.5
+offset_top = -17.0
+offset_right = 16.5
+offset_bottom = -0.9360008
+grow_horizontal = 2
+grow_vertical = 0
+text = "HERO"
+horizontal_alignment = 1
+
+[node name="HeroLabel2" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 26.0
+offset_top = 36.0
+offset_right = 73.0
+offset_bottom = 59.0
+color = Color(1, 1, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="HeroLabel2"]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -60.0
+offset_right = -5.0
+offset_bottom = 107.32878
+rotation = -0.51581323
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="HeroLabel2"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = -72.0
+offset_right = 65.0
+offset_bottom = 95.32878
+rotation = 0.39465487
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="HeroLabel2"]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -27.0
+offset_right = 75.0
+offset_bottom = 44.0
+color = Color(0, 0, 0, 1)
+
+[node name="ManaLabel2" type="Label" parent="HeroLabel2/ColorRect5"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -62.0
+offset_right = 42.5
+offset_bottom = -7.8080025
+grow_horizontal = 2
+grow_vertical = 0
+text = "CAN ONLY HAVE 1 HERO AT A TIME"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -23,7 +23,7 @@ func _ready() -> void:
 		explosionInstance.isEnemy = isEnemy
 		explosionInstance.damage = 30
 		explosionInstance.explosionSpeed = 50
-		explosionInstance.explosionTime = 0.3
+		explosionInstance.explosionTime = 0.15
 		explosionInstance.skills = ["Flashbang"]
 	await get_tree().create_timer(life).timeout
 	queue_free()

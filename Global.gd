@@ -7,11 +7,13 @@ var currentDescUnit2 = "Barbados"
 var replacingUnit = ""
 var mana = 50
 var maxMana = 300
-var enemyMana = 50
-var enemyMaxMana = 300
+var enemyMana = 100
+var enemyMaxMana = 500
 var onUI = false
 var paused = false
 var replacing = false
+var heroPlaced = false
+var enemyHeroPlaced = false
 
 var minutes = 2
 var seconds = 59
@@ -24,6 +26,8 @@ var enemyUnitList = ["Goblin","Spear Goblin", "Dart Goblin", "Orc", "Hobgoblin",
 var inventory = ["Barbados","Blorzik","Imperial Sapper"]
 var gamemode = "Clash"
 
+
+	
 var unitDict = {
 	"Imperial Swordsman": {
 		"cost": 10,
@@ -64,7 +68,7 @@ var unitDict = {
 		"thrustAmplitude": 30,
 		"rangedDamage": 80,
 		"projectileSpeed": 3500,
-		"projectileLife": 3,
+		"projectileLife": 0.9,
 		"rangeRadius": 750.0,
 		"rateOfFire": 10,
 		"isMelee": false,
@@ -88,7 +92,7 @@ var unitDict = {
 		"thrustAmplitude": 35,
 		"rangedDamage": 50,
 		"projectileSpeed": 3000,
-		"projectileLife": 3,
+		"projectileLife": 0.75,
 		"rangeRadius": 500.0,
 		"rateOfFire": 15,
 		"isMelee": true,
@@ -112,7 +116,7 @@ var unitDict = {
 		"thrustAmplitude": 60,
 		"rangedDamage": 50,
 		"projectileSpeed": 1300,
-		"projectileLife": 3.5,
+		"projectileLife": 0.5,
 		"rangeRadius": 300,
 		"rateOfFire": 10,
 		"isMelee": true,
@@ -136,7 +140,7 @@ var unitDict = {
 		"thrustAmplitude": 40,
 		"rangedDamage": 120,
 		"projectileSpeed": 3000,
-		"projectileLife": 3,
+		"projectileLife": 1.5,
 		"rangeRadius": 1200.0,
 		"rateOfFire": 20,
 		"isMelee": false,
@@ -160,7 +164,7 @@ var unitDict = {
 		"thrustAmplitude": 35,
 		"rangedDamage": 10,
 		"projectileSpeed": 500,
-		"projectileLife": 2.5,
+		"projectileLife": 1,
 		"rangeRadius": 100.0,
 		"rateOfFire": 30,
 		"isMelee": true,
@@ -232,7 +236,7 @@ var unitDict = {
 		"thrustAmplitude": 65,
 		"rangedDamage": 40,
 		"projectileSpeed": 2400,
-		"projectileLife": 3,
+		"projectileLife": 0.75,
 		"rangeRadius": 350.0,
 		"rateOfFire": 2,
 		"isMelee": false,
@@ -256,7 +260,7 @@ var unitDict = {
 		"thrustAmplitude": 20,
 		"rangedDamage": 300,
 		"projectileSpeed": 2500,
-		"projectileLife": 1,
+		"projectileLife": 1.1,
 		"rangeRadius": 2100.0,
 		"rateOfFire": 20,
 		"isMelee": false,
@@ -448,7 +452,7 @@ var unitDict = {
 		"rateOfFire": 3,
 		"isMelee": true,
 		"isRanged": true,
-		"skills": ["Skirmish", "Gun", "Flashbang"],
+		"skills": ["Skirmish", "Gun", "Flashbang", "Hero"],
 		"desc": "A mysterious arcane sniper who used to be an imperial soldier and now works as a monster hunter. He uses a magic musket and flashbangs that stun enemies"
 	},
 	"Barbados": {
@@ -471,7 +475,7 @@ var unitDict = {
 		"rateOfFire": 0.5,
 		"isMelee": true,
 		"isRanged": false,
-		"skills": ["Werewolf"],
+		"skills": ["Werewolf", "Hero"],
 		"desc": "A powerful swordsman with otherworldly armor. When he runs out of HP, he activates his alpha werewolf form."
 	},
 	"Alpha Barbados": {
@@ -494,12 +498,12 @@ var unitDict = {
 		"rateOfFire": 0.5,
 		"isMelee": true,
 		"isRanged": false,
-		"skills": [],
+		"skills": ["Hero"],
 		"desc": "IMA RIP AND TEAR."
 	},
 	"Blorzik": {
 		"cost": 180,
-		"maxHp": 500,
+		"maxHp": 900,
 		"maxMorale": 220,
 		"unitName": "Blorzik",
 		"maxSpeed": 600,
@@ -517,7 +521,7 @@ var unitDict = {
 		"rateOfFire": 0.5,
 		"isMelee": true,
 		"isRanged": false,
-		"skills": ["Thrust", "Fear Aura"],
+		"skills": ["Thrust", "Fear Aura", "Hero"],
 		"desc": "An insane gnome who has a deep lust for blood. He murdered 3/4s of the population of his hometown, Gimmelstump. His aura causes morale loss amongst enemies."
 	}
 }
@@ -532,4 +536,3 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	mana = clamp(mana, 0, maxMana)
 	enemyMana = clamp(enemyMana, 0, enemyMaxMana)
-	

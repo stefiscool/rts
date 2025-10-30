@@ -10,6 +10,8 @@ func delete_nodes_in_group(group_name: String):
 func _on_quick_battle_pressed() -> void:
 	delete_nodes_in_group("Enemy")
 	delete_nodes_in_group("Ally")
+	Global.heroPlaced = false
+	Global.enemyHeroPlaced = false
 	get_tree().change_scene_to_file("res://Scenes/unit_select.tscn")
 
 

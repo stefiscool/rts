@@ -1,28 +1,20 @@
 extends Area2D
 
 var canPlace = false
+var hero = false
 
 @onready var unit = preload("res://Scenes/Units/infantry.tscn")
 
-#func check_if_in_territory() -> bool:
-	#if not self is Area2D:
-		#print("false")
-		#return false
-		#
-	#var overlapping_areas = get_overlapping_areas()
-	#for area in overlapping_areas:
-		#if area.is_in_group("Territory"):
-			#return true
-	#return false
-#
-## Call this when you need to update canPlace
-#func update_can_place():
-	#canPlace = check_if_in_territory()
+
 
 func _process(_delta: float) -> void:
 	update_can_place()
 	global_position = get_global_mouse_position()
-	if Input.is_action_just_pressed("click") and canPlace and (Global.mana >= Global.unitDict[Global.currentUnit]["cost"]):
+	if Global.unitDict[Global.currentUnit]["skills"].has("Hero") and Global.heroPlaced == true:
+		hero = true
+	else:
+		hero = false
+	if Input.is_action_just_pressed("click") and canPlace and (Global.mana >= Global.unitDict[Global.currentUnit]["cost"]) and hero == false:
 		$"place unit".play()
 		var unitInstance = unit.instantiate()
 		unitInstance.position = get_global_mouse_position()

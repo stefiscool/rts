@@ -54,6 +54,11 @@ var scaredPlayed = false
 
 
 func _ready() -> void:
+	if skills.has("Hero"):
+		if isEnemy:
+			Global.enemyHeroPlaced = true
+		else:
+			Global.heroPlaced = true
 	if unitName == "Ludwig":
 		$Ludwig.play()
 	if unitName == "Barbados":
@@ -159,6 +164,11 @@ func _process(delta: float) -> void:
 	elif skirmishing == false:
 		currentState = State.ATTACK
 	if hp <= 0:
+		if skills.has("Hero"):
+			if isEnemy:
+				Global.enemyHeroPlaced = false
+			else:
+				Global.heroPlaced = false
 		var turnedIntoWolf = false
 		if skills.has("Werewolf") and turnedIntoWolf == false:
 			var unitInstance = unit.instantiate()

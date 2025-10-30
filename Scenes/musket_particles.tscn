@@ -11,7 +11,6 @@ colors = PackedColorArray(1, 1, 1, 1, 0.744314, 0.744314, 0.744314, 0.275556, 0.
 
 [node name="MusketParticles" type="CPUParticles2D"]
 emitting = false
-amount = 5
 lifetime = 15.0
 one_shot = true
 explosiveness = 1.0

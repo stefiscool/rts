@@ -780,6 +780,24 @@ theme_override_font_sizes/font_size = 50
 text = "Your Units"
 horizontal_alignment = 1
 
+[node name="Label3" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 133.0
+offset_right = 54.0
+offset_bottom = 158.1
+theme_override_font_sizes/font_size = 25
+text = "Key"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 59.0
+offset_top = 134.0
+offset_right = 155.0
+offset_bottom = 159.1
+theme_override_font_sizes/font_size = 25
+text = "Mana Cost"
+horizontal_alignment = 1
+
 [node name="Label4" type="Label" parent="."]
 offset_left = 66.0
 offset_top = 600.0

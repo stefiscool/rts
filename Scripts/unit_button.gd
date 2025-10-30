@@ -9,10 +9,15 @@ func _ready() -> void:
 	$UnitNumLabel.text = "(" + str(unitNumber) + ")"
 	$ManaLabel.text = str(Global.unitDict[unit]["cost"]) + "M"
 	icon = Global.unitDict[unit]["icon"]
-
+	if Global.unitDict[unit]["skills"].has("Hero"):
+		$HeroLabel.visible = true
+		
 func _process(delta: float) -> void:
 	$ColorRect2.visible = (unit == Global.currentUnit)
-	
+	if Global.unitDict[unit]["skills"].has("Hero") and Global.heroPlaced == true:
+		$HeroLabel2.visible = true
+	else:
+		$HeroLabel2.visible = false
 func _on_button_pressed() -> void:
 	if Global.descOpen and Global.currentDescUnit == unit:
 		Global.descOpen = false
