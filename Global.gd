@@ -126,7 +126,7 @@ var unitDict = {
 		"desc": "A high-ranking imperial commander who inspires nearby troops with his presence. He wields both a ceremonial sword and a refined pistol."
 	},
 	"Imperial Rifleman": {
-		"cost": 18,
+		"cost": 20,
 		"maxHp": 65,
 		"maxMorale": 45,
 		"unitName": "Imperial Rifleman",
@@ -150,7 +150,7 @@ var unitDict = {
 		"desc": "An elite marksman equipped with a precision rifle for long-range engagements. His shots are deadly accurate but require careful positioning."
 	},
 	"Imperial Sapper": {
-		"cost": 20,
+		"cost": 18,
 		"maxHp": 60,
 		"maxMorale": 35,
 		"unitName": "Imperial Sapper",
@@ -174,7 +174,7 @@ var unitDict = {
 		"desc": "A demolitions expert who uses grenades and a big axe to destroy structures. His grenades can devastate clustered enemies but have limited range."
 	},
 	"Imperial Hussar": {
-		"cost": 28,
+		"cost": 25,
 		"maxHp": 170,
 		"maxMorale": 60,
 		"unitName": "Imperial Hussar",
@@ -198,7 +198,7 @@ var unitDict = {
 		"desc": "A fast-moving rider armed with a cavalry saber. He excels at speed and can be summoned on the flanks."
 	},
 	"Imperial Lancer": {
-		"cost": 38,
+		"cost": 35,
 		"maxHp": 195,
 		"maxMorale": 65,
 		"unitName": "Imperial Lancer",
@@ -222,7 +222,7 @@ var unitDict = {
 		"desc": "A heavy cavalry soldier wielding a long lance for devastating charges. His momentum can pierce through multiple enemies in a single attack."
 	},
 	"Imperial Dragoon": {
-		"cost": 32,
+		"cost": 50,
 		"maxHp": 145,
 		"maxMorale": 70,
 		"unitName": "Imperial Dragoon",
@@ -238,7 +238,7 @@ var unitDict = {
 		"projectileSpeed": 2400,
 		"projectileLife": 0.75,
 		"rangeRadius": 350.0,
-		"rateOfFire": 2,
+		"rateOfFire": 15,
 		"isMelee": false,
 		"isRanged": true,
 		"skills": ["Skirmish", "Gun"],
@@ -246,7 +246,7 @@ var unitDict = {
 		"desc": "An elite mounted soldier who uses a cavalry carbine. He is very good at skirmishing."
 	},
 	"Imperial Cannon": {
-		"cost": 40,
+		"cost": 70,
 		"maxHp": 30,
 		"maxMorale": 100,
 		"unitName": "Imperial Cannon",
@@ -262,7 +262,7 @@ var unitDict = {
 		"projectileSpeed": 2500,
 		"projectileLife": 1.1,
 		"rangeRadius": 2100.0,
-		"rateOfFire": 20,
+		"rateOfFire": 40,
 		"isMelee": false,
 		"isRanged": true,
 		"skills": ["Fireball", "Cannon"],
@@ -434,7 +434,7 @@ var unitDict = {
 	},
 	"Ludwig": {
 		"cost": 200,
-		"maxHp": 300,
+		"maxHp": 250,
 		"maxMorale": 150,
 		"unitName": "Ludwig",
 		"maxSpeed": 300,
@@ -445,11 +445,11 @@ var unitDict = {
 		"attackSpeed": 200,
 		"meleeWeaponReach": 1,
 		"thrustAmplitude": 40,
-		"rangedDamage": 120,
+		"rangedDamage": 90,
 		"projectileSpeed": 3500,
 		"projectileLife": 3,
 		"rangeRadius": 800.0,
-		"rateOfFire": 3,
+		"rateOfFire": 5,
 		"isMelee": true,
 		"isRanged": true,
 		"skills": ["Skirmish", "Gun", "Flashbang", "Hero"],
@@ -457,7 +457,7 @@ var unitDict = {
 	},
 	"Barbados": {
 		"cost": 250,
-		"maxHp": 500,
+		"maxHp": 200,
 		"maxMorale": 200,
 		"unitName": "Barbados",
 		"maxSpeed": 330,
@@ -480,7 +480,7 @@ var unitDict = {
 	},
 	"Alpha Barbados": {
 		"cost": 10,
-		"maxHp": 1000,
+		"maxHp": 500,
 		"maxMorale": 350,
 		"unitName": "Alpha Barbados",
 		"maxSpeed": 540,
@@ -503,7 +503,7 @@ var unitDict = {
 	},
 	"Blorzik": {
 		"cost": 180,
-		"maxHp": 900,
+		"maxHp": 800,
 		"maxMorale": 220,
 		"unitName": "Blorzik",
 		"maxSpeed": 600,
